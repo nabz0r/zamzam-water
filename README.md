@@ -174,7 +174,17 @@ zamzam-research/
 
 ## Screenshots
 
-_Coming soon — dashboard captures pending._
+| Chemistry Explorer | Archaeology Map |
+|---|---|
+| ![Chemistry](docs/screenshots/chemistry.png) | ![Archaeology](docs/screenshots/archaeology.png) |
+
+| Satellite Viewer | Hydro / Weather |
+|---|---|
+| ![Satellite](docs/screenshots/satellite.png) | ![Hydro](docs/screenshots/hydro.png) |
+
+| Lab Tracker |
+|---|
+| ![Lab](docs/screenshots/lab.png) |
 
 ## License
 

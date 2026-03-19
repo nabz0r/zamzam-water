@@ -61,13 +61,43 @@ async def list_publications(
 
 @router.get("/search")
 async def search_publications(
-    q: str = Query(..., min_length=2),
+    q: str = Query("", min_length=0),
     page: int = Query(1, ge=1),
     per_page: int = Query(20, ge=1, le=100),
-    mode: str = Query("auto", regex="^(auto|text|semantic)$"),
+    mode: str = Query("auto", pattern="^(auto|text|semantic)$"),
     db: AsyncSession = Depends(get_db),
 ):
-    """Search publications. Modes: auto (semantic if available, else text), text (ilike), semantic (pgvector)."""
+    """Search publications. Modes: auto (semantic if available, else text), text (ilike), semantic (pgvector).
+    Empty query returns all papers paginated (same as list endpoint)."""
+    # Empty query → return all papers
+    if not q.strip():
+        query = select(Publication).order_by(Publication.year.desc().nullslast())
+        count_q = select(func.count()).select_from(query.subquery())
+        total = (await db.execute(count_q)).scalar()
+        query = query.offset((page - 1) * per_page).limit(per_page)
+        result = await db.execute(query)
+        pubs = result.scalars().all()
+        return {
+            "total": total,
+            "page": page,
+            "per_page": per_page,
+            "query": q,
+            "mode": "text",
+            "results": [
+                {
+                    "id": str(p.id),
+                    "title": p.title,
+                    "authors": p.authors,
+                    "journal": p.journal,
+                    "year": p.year,
+                    "doi": p.doi,
+                    "pmid": p.pmid,
+                    "abstract": p.abstract[:300] + "..." if p.abstract and len(p.abstract) > 300 else p.abstract,
+                }
+                for p in pubs
+            ],
+        }
+
     # Try semantic search first if mode allows
     if mode in ("auto", "semantic"):
         try:
