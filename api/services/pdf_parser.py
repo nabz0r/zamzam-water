@@ -205,6 +205,63 @@ def _guess_unit(element: str, header: list[str] = None, col_idx: int = None) -> 
     return "mg/L"
 
 
+def extract_chemical_via_llm(text: str) -> list[dict]:
+    """Use Ollama (qwen2.5) to extract chemical data from unstructured text.
+
+    Sends table-like text to the LLM with a structured extraction prompt.
+    """
+    if not text or len(text.strip()) < 50:
+        return []
+
+    # Truncate to avoid overwhelming the LLM
+    chunk = text[:4000]
+
+    prompt = (
+        "Extract all chemical element concentrations from this scientific text. "
+        "Return ONLY a JSON array. Each item must have: element (symbol like Ca, Mg, Na, pH, TDS), "
+        "value (number), unit (mg/L or µg/L or -). "
+        "If no chemical data found, return []. "
+        "Text:\n\n" + chunk
+    )
+
+    try:
+        resp = httpx.post(
+            f"{settings.ollama_base_url}/api/generate",
+            json={"model": settings.ollama_model, "prompt": prompt, "stream": False},
+            timeout=60.0,
+        )
+        if resp.status_code != 200:
+            return []
+        data = resp.json()
+        response_text = data.get("response", "")
+
+        # Parse JSON from response
+        import json
+        # Find JSON array in response
+        start = response_text.find("[")
+        end = response_text.rfind("]") + 1
+        if start >= 0 and end > start:
+            items = json.loads(response_text[start:end])
+            results = []
+            for item in items:
+                elem = item.get("element", "")
+                val = item.get("value")
+                unit = item.get("unit", "mg/L")
+                if elem and val is not None:
+                    try:
+                        results.append({
+                            "element": elem,
+                            "value": float(val),
+                            "unit": unit,
+                        })
+                    except (ValueError, TypeError):
+                        continue
+            return results
+    except Exception:
+        pass
+    return []
+
+
 def run_pdf_parser(session: Optional[Session] = None) -> dict:
     """Run the PDF parsing pipeline on Zamzam-titled publications.
 
@@ -223,6 +280,7 @@ def run_pdf_parser(session: Optional[Session] = None) -> dict:
             "pdfs_downloaded": 0,
             "values_from_text": 0,
             "values_from_tables": 0,
+            "values_from_llm": 0,
         }
 
         # Get Zamzam-titled papers with DOIs
@@ -265,6 +323,14 @@ def run_pdf_parser(session: Optional[Session] = None) -> dict:
                 for cv in table_values:
                     _store_analysis(session, cv, pub, source="pdf_table")
                     stats["values_from_tables"] += 1
+
+            # LLM fallback: if regex/tabula found very little, try Ollama
+            total_regex = stats["values_from_text"] + stats["values_from_tables"]
+            if full_text and total_regex < 3:
+                llm_values = extract_chemical_via_llm(full_text)
+                for cv in llm_values:
+                    _store_analysis(session, cv, pub, source="llm_extraction")
+                    stats["values_from_llm"] += 1
 
         session.commit()
         return stats

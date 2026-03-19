@@ -1,7 +1,7 @@
 const API_BASE = '/api/v1';
 
-export async function fetchJson(path) {
-  const res = await fetch(`${API_BASE}${path}`);
+export async function fetchJson(path, options) {
+  const res = await fetch(`${API_BASE}${path}`, options);
   if (!res.ok) throw new Error(`API error: ${res.status}`);
   return res.json();
 }
@@ -27,5 +27,23 @@ export const api = {
   satellite: {
     scenes: () => fetchJson('/satellite/scenes'),
     stats: () => fetchJson('/satellite/stats'),
+  },
+  hydro: {
+    stats: () => fetchJson('/hydro/stats'),
+    rainfall: (start, end, resolution = 'daily') => {
+      let path = `/hydro/rainfall?resolution=${resolution}`;
+      if (start) path += `&start=${start}`;
+      if (end) path += `&end=${end}`;
+      return fetchJson(path);
+    },
+  },
+  lab: {
+    samples: () => fetchJson('/lab/samples'),
+    createSample: (data) =>
+      fetchJson('/lab/samples', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      }),
   },
 };

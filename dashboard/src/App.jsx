@@ -1,20 +1,25 @@
 import { useState, useEffect } from 'react'
+import Home from './components/Home'
 import ChemExplorer from './components/ChemExplorer'
 import ArchaeoMap from './components/ArchaeoMap'
 import PaperSearch from './components/PaperSearch'
 import SatelliteViewer from './components/SatelliteViewer'
+import HydroView from './components/HydroView'
+import LabTracker from './components/LabTracker'
 import { api } from './utils/api'
 
 const NAV_ITEMS = [
+  { key: 'home', label: 'Dashboard', icon: '\u{1F3E0}' },
   { key: 'publications', label: 'Publications', icon: '\u{1F4D1}' },
   { key: 'chemistry', label: 'Chemistry', icon: '\u{1F9EA}' },
-  { key: 'archaeology', label: 'Archaeology', icon: '\u{1F3DB}' },
+  { key: 'hydro', label: 'Hydro', icon: '\u{1F4A7}' },
   { key: 'satellite', label: 'Satellite', icon: '\u{1F6F0}' },
+  { key: 'archaeology', label: 'Archaeology', icon: '\u{1F3DB}' },
   { key: 'lab', label: 'Lab', icon: '\u{1F52C}' },
 ]
 
 function App() {
-  const [page, setPage] = useState('publications')
+  const [page, setPage] = useState('home')
   const [stats, setStats] = useState({ papers: 0, analyses: 0, sites: 0 })
 
   useEffect(() => {
@@ -36,7 +41,9 @@ function App() {
       {/* Sidebar */}
       <aside className="w-56 bg-[#0f1629] border-r border-[#1e2a4a] flex flex-col shrink-0">
         <div className="p-5 border-b border-[#1e2a4a]">
-          <h1 className="text-lg leading-tight text-[#e2e8f0]">Zamzam Research</h1>
+          <h1 className="text-lg leading-tight text-[#e2e8f0]" style={{ fontFamily: 'Georgia, serif' }}>
+            Zamzam Research
+          </h1>
           <p className="text-xs text-[#64748b] mt-1">Hydrochemical Analysis Platform</p>
         </div>
         <nav className="flex-1 py-3">
@@ -74,16 +81,13 @@ function App() {
 
       {/* Main content */}
       <main className="flex-1 overflow-auto bg-[#0a0e1a]">
+        {page === 'home' && <Home />}
         {page === 'publications' && <PaperSearch />}
         {page === 'chemistry' && <ChemExplorer />}
-        {page === 'archaeology' && <ArchaeoMap />}
+        {page === 'hydro' && <HydroView />}
         {page === 'satellite' && <SatelliteViewer />}
-        {page === 'lab' && (
-          <div className="p-8 text-[#64748b]">
-            <h2 className="text-2xl text-[#e2e8f0] mb-4">Lab Samples</h2>
-            <p>Upload and tracking interface coming in Sprint 5.</p>
-          </div>
-        )}
+        {page === 'archaeology' && <ArchaeoMap />}
+        {page === 'lab' && <LabTracker />}
       </main>
     </div>
   )

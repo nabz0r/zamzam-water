@@ -2,12 +2,12 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from api.config import settings
-from api.routers import archaeology, chemistry, publications, satellite
+from api.routers import archaeology, chemistry, hydro, lab, publications, satellite
 
 app = FastAPI(
     title="Zamzam Research API",
     description="Independent scientific research platform for Zamzam water analysis",
-    version="0.2.0",
+    version="0.3.0",
 )
 
 app.add_middleware(
@@ -22,13 +22,15 @@ app.include_router(publications.router)
 app.include_router(chemistry.router)
 app.include_router(archaeology.router)
 app.include_router(satellite.router)
+app.include_router(hydro.router)
+app.include_router(lab.router)
 
 
 @app.get("/")
 async def root():
     return {
         "project": "zamzam-research",
-        "version": "0.2.0",
+        "version": "0.3.0",
         "status": "running",
     }
 
@@ -67,4 +69,12 @@ async def trigger_generate_embeddings():
     """Generate pgvector embeddings for publications via Ollama."""
     from api.services.embeddings import generate_embeddings_batch
     stats = generate_embeddings_batch()
+    return {"status": "completed", **stats}
+
+
+@app.post("/api/v1/tasks/sync-hydro")
+async def trigger_sync_hydro():
+    """Sync weather/hydro data from Open-Meteo."""
+    from api.services.weather_fetcher import run_weather_sync
+    stats = run_weather_sync()
     return {"status": "completed", **stats}
