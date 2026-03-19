@@ -2,7 +2,7 @@
 
 ## Overview
 
-- **Total measurements**: 186
+- **Total measurements**: 177
 - **Sources**: 16 (5 Zamzam studies + 11 comparison waters)
 - **Elements**: 25 distinct parameters
 - **Temporal coverage**: 2009–2025

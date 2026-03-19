@@ -221,14 +221,13 @@
       "elements": {
         "pH": {"value": 5.5, "unit": "-"},
         "TDS": {"value": 475.0, "unit": "mg/L"},
-        "Ca": {"value": 147.3, "unit": "mg/L"},
-        "Mg": {"value": 3.4, "unit": "mg/L"},
+        "Ca": {"value": 147.0, "unit": "mg/L"},
+        "Mg": {"value": 6.0, "unit": "mg/L"},
         "Na": {"value": 9.0, "unit": "mg/L"},
-        "K": {"value": 0.7, "unit": "mg/L"},
-        "Cl": {"value": 21.4, "unit": "mg/L"},
+        "K": {"value": 1.0, "unit": "mg/L"},
+        "Cl": {"value": 25.0, "unit": "mg/L"},
         "SO4": {"value": 33.0, "unit": "mg/L"},
         "HCO3": {"value": 390.0, "unit": "mg/L"},
-        "NO3": {"value": 3.8, "unit": "mg/L"},
         "F": {"value": 0.12, "unit": "mg/L"}
       }
     },
@@ -241,17 +240,15 @@
       "sample_location": "Gerolstein, Eifel, Germany",
       "sample_source": "gerolsteiner",
       "elements": {
-        "pH": {"value": 6.5, "unit": "-"},
+        "pH": {"value": 5.9, "unit": "-"},
         "TDS": {"value": 2527.0, "unit": "mg/L"},
         "Ca": {"value": 348.0, "unit": "mg/L"},
         "Mg": {"value": 108.0, "unit": "mg/L"},
-        "Na": {"value": 11.8, "unit": "mg/L"},
-        "K": {"value": 6.5, "unit": "mg/L"},
-        "Cl": {"value": 8.5, "unit": "mg/L"},
-        "SO4": {"value": 38.3, "unit": "mg/L"},
-        "HCO3": {"value": 1816.0, "unit": "mg/L"},
-        "F": {"value": 0.2, "unit": "mg/L"},
-        "SiO2": {"value": 28.0, "unit": "mg/L"}
+        "Na": {"value": 118.0, "unit": "mg/L"},
+        "K": {"value": 11.0, "unit": "mg/L"},
+        "Cl": {"value": 40.0, "unit": "mg/L"},
+        "SO4": {"value": 38.0, "unit": "mg/L"},
+        "HCO3": {"value": 1816.0, "unit": "mg/L"}
       }
     },
     {
@@ -288,15 +285,12 @@
         "pH": {"value": 8.2, "unit": "-"},
         "TDS": {"value": 188.0, "unit": "mg/L"},
         "Ca": {"value": 32.0, "unit": "mg/L"},
-        "Mg": {"value": 6.6, "unit": "mg/L"},
-        "Na": {"value": 6.1, "unit": "mg/L"},
-        "K": {"value": 0.9, "unit": "mg/L"},
-        "Cl": {"value": 7.4, "unit": "mg/L"},
+        "Mg": {"value": 6.4, "unit": "mg/L"},
+        "Na": {"value": 6.5, "unit": "mg/L"},
+        "K": {"value": 1.0, "unit": "mg/L"},
+        "Cl": {"value": 7.7, "unit": "mg/L"},
         "SO4": {"value": 22.0, "unit": "mg/L"},
-        "HCO3": {"value": 106.0, "unit": "mg/L"},
-        "NO3": {"value": 7.6, "unit": "mg/L"},
-        "F": {"value": 0.1, "unit": "mg/L"},
-        "SiO2": {"value": 5.3, "unit": "mg/L"}
+        "HCO3": {"value": 106.0, "unit": "mg/L"}
       }
     },
     {
@@ -310,14 +304,13 @@
       "elements": {
         "pH": {"value": 7.8, "unit": "-"},
         "TDS": {"value": 124.0, "unit": "mg/L"},
-        "Ca": {"value": 35.0, "unit": "mg/L"},
+        "Ca": {"value": 39.0, "unit": "mg/L"},
         "Mg": {"value": 8.0, "unit": "mg/L"},
         "Na": {"value": 6.0, "unit": "mg/L"},
-        "K": {"value": 0.6, "unit": "mg/L"},
-        "Cl": {"value": 7.0, "unit": "mg/L"},
-        "SO4": {"value": 5.4, "unit": "mg/L"},
-        "HCO3": {"value": 120.0, "unit": "mg/L"},
-        "NO3": {"value": 2.0, "unit": "mg/L"}
+        "K": {"value": 1.0, "unit": "mg/L"},
+        "Cl": {"value": 8.0, "unit": "mg/L"},
+        "SO4": {"value": 5.0, "unit": "mg/L"},
+        "HCO3": {"value": 136.0, "unit": "mg/L"}
       }
     },
     {
@@ -352,15 +345,13 @@
       "elements": {
         "pH": {"value": 7.5, "unit": "-"},
         "TDS": {"value": 310.0, "unit": "mg/L"},
-        "Ca": {"value": 85.0, "unit": "mg/L"},
-        "Mg": {"value": 9.0, "unit": "mg/L"},
-        "Na": {"value": 8.5, "unit": "mg/L"},
-        "K": {"value": 1.5, "unit": "mg/L"},
-        "Cl": {"value": 18.0, "unit": "mg/L"},
-        "SO4": {"value": 25.0, "unit": "mg/L"},
-        "HCO3": {"value": 245.0, "unit": "mg/L"},
-        "NO3": {"value": 15.0, "unit": "mg/L"},
-        "F": {"value": 0.08, "unit": "mg/L"}
+        "Ca": {"value": 90.0, "unit": "mg/L"},
+        "Mg": {"value": 8.0, "unit": "mg/L"},
+        "Na": {"value": 10.0, "unit": "mg/L"},
+        "K": {"value": 2.0, "unit": "mg/L"},
+        "Cl": {"value": 15.0, "unit": "mg/L"},
+        "SO4": {"value": 20.0, "unit": "mg/L"},
+        "HCO3": {"value": 250.0, "unit": "mg/L"}
       }
     }
   ],
