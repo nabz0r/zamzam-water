@@ -24,4 +24,8 @@ export const api = {
     sites: () => fetchJson('/archaeology/sites'),
     site: (id) => fetchJson(`/archaeology/sites/${id}`),
   },
+  satellite: {
+    scenes: () => fetchJson('/satellite/scenes'),
+    stats: () => fetchJson('/satellite/stats'),
+  },
 };

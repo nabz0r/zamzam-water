@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import ChemExplorer from './components/ChemExplorer'
 import ArchaeoMap from './components/ArchaeoMap'
 import PaperSearch from './components/PaperSearch'
+import SatelliteViewer from './components/SatelliteViewer'
 import { api } from './utils/api'
 
 const NAV_ITEMS = [
@@ -76,12 +77,7 @@ function App() {
         {page === 'publications' && <PaperSearch />}
         {page === 'chemistry' && <ChemExplorer />}
         {page === 'archaeology' && <ArchaeoMap />}
-        {page === 'satellite' && (
-          <div className="p-8 text-[#64748b]">
-            <h2 className="text-2xl text-[#e2e8f0] mb-4">Satellite Data</h2>
-            <p>Pipeline coming in Sprint 4 — GEE integration for Wadi Ibrahim basin.</p>
-          </div>
-        )}
+        {page === 'satellite' && <SatelliteViewer />}
         {page === 'lab' && (
           <div className="p-8 text-[#64748b]">
             <h2 className="text-2xl text-[#e2e8f0] mb-4">Lab Samples</h2>

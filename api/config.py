@@ -21,7 +21,8 @@ class Settings(BaseSettings):
     # Ollama
     ollama_base_url: str = "http://localhost:11434"
     ollama_model: str = "qwen2.5"
-    embedding_dim: int = 1536
+    embedding_model: str = "nomic-embed-text"
+    embedding_dim: int = 768
 
     # PubMed
     entrez_email: str = ""

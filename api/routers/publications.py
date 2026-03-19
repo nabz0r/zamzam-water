@@ -64,9 +64,32 @@ async def search_publications(
     q: str = Query(..., min_length=2),
     page: int = Query(1, ge=1),
     per_page: int = Query(20, ge=1, le=100),
+    mode: str = Query("auto", regex="^(auto|text|semantic)$"),
     db: AsyncSession = Depends(get_db),
 ):
-    """Full-text search on title + abstract (ilike for now, pgvector later)."""
+    """Search publications. Modes: auto (semantic if available, else text), text (ilike), semantic (pgvector)."""
+    # Try semantic search first if mode allows
+    if mode in ("auto", "semantic"):
+        try:
+            from api.services.embeddings import semantic_search
+            results = await semantic_search(q, limit=per_page)
+            if results:
+                return {
+                    "total": len(results),
+                    "page": 1,
+                    "per_page": per_page,
+                    "query": q,
+                    "mode": "semantic",
+                    "results": results,
+                }
+        except Exception:
+            pass
+        if mode == "semantic":
+            return {"total": 0, "page": 1, "per_page": per_page, "query": q,
+                    "mode": "semantic", "results": [],
+                    "error": "Semantic search unavailable (Ollama not running or no embeddings)"}
+
+    # Fallback to text search (ilike)
     pattern = f"%{q}%"
     query = (
         select(Publication)
@@ -91,6 +114,7 @@ async def search_publications(
         "page": page,
         "per_page": per_page,
         "query": q,
+        "mode": "text",
         "results": [
             {
                 "id": str(p.id),
