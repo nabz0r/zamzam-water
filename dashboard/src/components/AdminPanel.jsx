@@ -1,5 +1,11 @@
 import { useState, useEffect, useCallback } from 'react'
 import { api } from '../utils/api'
+import { loadToggles, saveToggles, FEATURE_DEFAULTS } from '../utils/featureToggles'
+
+const FEATURE_TOGGLE_ITEMS = [
+  { key: 'archaeology', label: 'Archaeology', desc: 'Quranic archaeological sites map and data' },
+  { key: 'satellite', label: 'Satellite', desc: 'Sentinel-2 satellite imagery viewer' },
+]
 
 const TASKS = [
   {
@@ -129,9 +135,17 @@ function TaskButton({ task }) {
   )
 }
 
-export default function AdminPanel() {
+export default function AdminPanel({ onTogglesChanged }) {
   const [dbStats, setDbStats] = useState(null)
   const [loading, setLoading] = useState(true)
+  const [toggles, setToggles] = useState(loadToggles)
+
+  const handleToggle = (key) => {
+    const updated = { ...toggles, [key]: !toggles[key] }
+    setToggles(updated)
+    saveToggles(updated)
+    if (onTogglesChanged) onTogglesChanged()
+  }
 
   const loadStats = useCallback(async () => {
     try {
@@ -218,6 +232,40 @@ export default function AdminPanel() {
         ) : (
           <p className="text-[#64748b] text-sm">Failed to load stats.</p>
         )}
+      </section>
+
+      {/* Feature Toggles */}
+      <section className="mb-8">
+        <h3 className="text-sm text-[#94a3b8] uppercase tracking-wider mb-4">
+          Feature Toggles
+        </h3>
+        <div className="bg-[#0f1629] border border-[#1e2a4a] rounded-lg divide-y divide-[#1e2a4a]/50">
+          {FEATURE_TOGGLE_ITEMS.map((item) => (
+            <div key={item.key} className="flex items-center justify-between px-6 py-4">
+              <div>
+                <div className="text-sm text-[#e2e8f0]">{item.label}</div>
+                <div className="text-xs text-[#64748b] mt-0.5">{item.desc}</div>
+              </div>
+              <button
+                onClick={() => handleToggle(item.key)}
+                className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
+                  toggles[item.key] ? 'bg-[#1e3a5f]' : 'bg-[#1a2140]'
+                }`}
+              >
+                <span
+                  className={`inline-block h-4 w-4 rounded-full transition-transform ${
+                    toggles[item.key]
+                      ? 'translate-x-6 bg-[#60a5fa]'
+                      : 'translate-x-1 bg-[#4a5568]'
+                  }`}
+                />
+              </button>
+            </div>
+          ))}
+        </div>
+        <p className="text-xs text-[#4a5568] mt-2">
+          Toggles are saved in your browser. Disabled features are hidden from the sidebar and dashboard.
+        </p>
       </section>
     </div>
   )

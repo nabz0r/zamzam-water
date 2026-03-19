@@ -30,24 +30,25 @@ function Sparkline({ data, color, height = 40 }) {
   )
 }
 
-export default function Home() {
+export default function Home({ toggles = {} }) {
   const [stats, setStats] = useState(null)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    Promise.all([
+    const fetches = [
       api.publications.list(1, 1),
       api.chemistry.elements(),
-      api.satellite.stats(),
-      api.archaeology.sites(),
+      toggles.satellite !== false ? api.satellite.stats() : Promise.resolve(null),
+      toggles.archaeology !== false ? api.archaeology.sites() : Promise.resolve(null),
       api.hydro.stats().catch(() => null),
-    ]).then(([pubs, chem, sat, sites, hydro]) => {
+    ]
+    Promise.all(fetches).then(([pubs, chem, sat, sites, hydro]) => {
       setStats({
         papers: pubs.total,
         analyses: chem.elements.reduce((s, e) => s + e.count, 0),
         elements: chem.elements.length,
-        scenes: sat.total_scenes,
-        sites: sites.features.length,
+        scenes: sat?.total_scenes ?? 0,
+        sites: sites?.features?.length ?? 0,
         hydroDays: hydro?.total_days || 0,
         annualRainfall: hydro?.annual_rainfall || [],
         temperature: hydro?.temperature || {},
@@ -74,8 +75,12 @@ export default function Home() {
       <div className="grid grid-cols-5 gap-4 mb-8">
         <MetricCard label="Publications" value={stats.papers} sub="from PubMed" color="#60a5fa" />
         <MetricCard label="Chemical Analyses" value={stats.analyses} sub={`${stats.elements} elements`} color="#34d399" />
-        <MetricCard label="Satellite Scenes" value={stats.scenes} sub="Sentinel-2 L2A" color="#fbbf24" />
-        <MetricCard label="Archaeological Sites" value={stats.sites} sub="Quranic locations" color="#f87171" />
+        {toggles.satellite !== false && (
+          <MetricCard label="Satellite Scenes" value={stats.scenes} sub="Sentinel-2 L2A" color="#fbbf24" />
+        )}
+        {toggles.archaeology !== false && (
+          <MetricCard label="Archaeological Sites" value={stats.sites} sub="Quranic locations" color="#f87171" />
+        )}
         <MetricCard
           label="Weather Data"
           value={stats.hydroDays.toLocaleString()}

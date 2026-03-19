@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import Home from './components/Home'
 import ChemExplorer from './components/ChemExplorer'
 import ArchaeoMap from './components/ArchaeoMap'
@@ -9,14 +9,15 @@ import LabTracker from './components/LabTracker'
 import AdminPanel from './components/AdminPanel'
 import ResearchView from './components/ResearchView'
 import { api } from './utils/api'
+import { loadToggles } from './utils/featureToggles'
 
 const NAV_ITEMS = [
   { key: 'home', label: 'Dashboard', icon: '\u{1F3E0}' },
   { key: 'publications', label: 'Publications', icon: '\u{1F4D1}' },
   { key: 'chemistry', label: 'Chemistry', icon: '\u{1F9EA}' },
   { key: 'hydro', label: 'Hydro', icon: '\u{1F4A7}' },
-  { key: 'satellite', label: 'Satellite', icon: '\u{1F6F0}' },
-  { key: 'archaeology', label: 'Archaeology', icon: '\u{1F3DB}' },
+  { key: 'satellite', label: 'Satellite', icon: '\u{1F6F0}', feature: 'satellite' },
+  { key: 'archaeology', label: 'Archaeology', icon: '\u{1F3DB}', feature: 'archaeology' },
   { key: 'research', label: 'Research', icon: '\u{1F4CA}' },
   { key: 'lab', label: 'Lab', icon: '\u{1F52C}' },
   { key: 'admin', label: 'Admin', icon: '\u2699\uFE0F' },
@@ -25,6 +26,17 @@ const NAV_ITEMS = [
 function App() {
   const [page, setPage] = useState('home')
   const [stats, setStats] = useState({ papers: 0, analyses: 0, sites: 0 })
+  const [toggles, setToggles] = useState(loadToggles)
+
+  const refreshToggles = useCallback(() => setToggles(loadToggles()), [])
+
+  // Redirect to home if current page's feature was disabled
+  useEffect(() => {
+    const item = NAV_ITEMS.find((n) => n.key === page)
+    if (item?.feature && !toggles[item.feature]) {
+      setPage('home')
+    }
+  }, [toggles, page])
 
   useEffect(() => {
     Promise.all([
@@ -40,6 +52,10 @@ function App() {
     }).catch(() => {})
   }, [])
 
+  const visibleNav = NAV_ITEMS.filter(
+    (item) => !item.feature || toggles[item.feature]
+  )
+
   return (
     <div className="flex h-screen">
       {/* Sidebar */}
@@ -51,7 +67,7 @@ function App() {
           <p className="text-xs text-[#64748b] mt-1">Hydrochemical Analysis Platform</p>
         </div>
         <nav className="flex-1 py-3">
-          {NAV_ITEMS.map((item) => (
+          {visibleNav.map((item) => (
             <button
               key={item.key}
               onClick={() => setPage(item.key)}
@@ -76,24 +92,26 @@ function App() {
             <span>Analyses</span>
             <span className="text-[#94a3b8]">{stats.analyses}</span>
           </div>
-          <div className="flex justify-between">
-            <span>Sites</span>
-            <span className="text-[#94a3b8]">{stats.sites}</span>
-          </div>
+          {toggles.archaeology && (
+            <div className="flex justify-between">
+              <span>Sites</span>
+              <span className="text-[#94a3b8]">{stats.sites}</span>
+            </div>
+          )}
         </div>
       </aside>
 
       {/* Main content */}
       <main className="flex-1 overflow-auto bg-[#0a0e1a]">
-        {page === 'home' && <Home />}
+        {page === 'home' && <Home toggles={toggles} />}
         {page === 'publications' && <PaperSearch />}
         {page === 'chemistry' && <ChemExplorer />}
         {page === 'hydro' && <HydroView />}
-        {page === 'satellite' && <SatelliteViewer />}
-        {page === 'archaeology' && <ArchaeoMap />}
+        {page === 'satellite' && toggles.satellite && <SatelliteViewer />}
+        {page === 'archaeology' && toggles.archaeology && <ArchaeoMap />}
         {page === 'research' && <ResearchView />}
         {page === 'lab' && <LabTracker />}
-        {page === 'admin' && <AdminPanel />}
+        {page === 'admin' && <AdminPanel onTogglesChanged={refreshToggles} />}
       </main>
     </div>
   )
