@@ -135,6 +135,7 @@ Well (Springer 2017): depth 31m, recovery 11min, extraction 500k m³/yr, peak 2M
 
 - Python: black, isort, type hints | SQL: alembic only
 - React: functional components, hooks | Commits: conventional
+- Migrations: EVERY time a model field is added/changed/removed, generate AND apply an Alembic migration in the same commit. Never commit a model change without its migration. Run: `PYTHONPATH=. alembic revision --autogenerate -m "description" && PYTHONPATH=. alembic upgrade head`
 
 ## Important notes
 

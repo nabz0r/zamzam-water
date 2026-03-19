@@ -32,6 +32,18 @@ const TASKS = [
     desc: 'Create pgvector embeddings via Ollama (requires Ollama running)',
     action: () => api.admin.generateEmbeddings(),
   },
+  {
+    key: 'seed',
+    label: 'Seed Data',
+    desc: 'Re-seed chemistry + archaeological sites from reference JSON (idempotent)',
+    action: () => api.admin.seed(),
+  },
+  {
+    key: 'classify',
+    label: 'Classify Papers',
+    desc: 'Mark publications as relevant/not relevant to Zamzam research',
+    action: () => api.admin.classify(),
+  },
 ]
 
 const TABLE_LABELS = {
@@ -98,6 +110,7 @@ function TaskButton({ task }) {
           {result.scenes_stored !== undefined && ` — ${result.scenes_stored} scenes stored`}
           {result.pdfs_parsed !== undefined && ` — ${result.pdfs_parsed} PDFs parsed`}
           {result.embeddings_generated !== undefined && ` — ${result.embeddings_generated} embeddings`}
+          {result.output && ` — ${result.output}`}
         </div>
       )}
       {error && (

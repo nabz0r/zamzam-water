@@ -42,3 +42,35 @@ async def admin_stats(db: AsyncSession = Depends(get_db)):
         "counts": counts,
         "last_updated": last_updated,
     }
+
+
+@router.post("/seed")
+async def trigger_seed():
+    """Re-seed database with reference chemistry data and archaeological sites."""
+    import subprocess
+    result = subprocess.run(
+        ["python3", "scripts/seed_known_data.py"],
+        capture_output=True, text=True, env={"PYTHONPATH": ".", "PATH": "/usr/bin:/usr/local/bin"},
+        timeout=30,
+    )
+    return {
+        "status": "completed" if result.returncode == 0 else "error",
+        "output": result.stdout.strip(),
+        "error": result.stderr.strip() if result.returncode != 0 else None,
+    }
+
+
+@router.post("/classify")
+async def trigger_classify():
+    """Classify publications as relevant/not relevant to Zamzam research."""
+    import subprocess
+    result = subprocess.run(
+        ["python3", "scripts/classify_papers.py"],
+        capture_output=True, text=True, env={"PYTHONPATH": ".", "PATH": "/usr/bin:/usr/local/bin"},
+        timeout=30,
+    )
+    return {
+        "status": "completed" if result.returncode == 0 else "error",
+        "output": result.stdout.strip(),
+        "error": result.stderr.strip() if result.returncode != 0 else None,
+    }

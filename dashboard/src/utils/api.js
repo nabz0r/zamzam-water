@@ -57,5 +57,7 @@ export const api = {
     fetchSatellite: () => fetchJson('/tasks/fetch-satellite', { method: 'POST' }),
     parsePdfs: () => fetchJson('/tasks/parse-pdfs', { method: 'POST' }),
     generateEmbeddings: () => fetchJson('/tasks/generate-embeddings', { method: 'POST' }),
+    seed: () => fetchJson('/admin/seed', { method: 'POST' }),
+    classify: () => fetchJson('/admin/classify', { method: 'POST' }),
   },
 };
