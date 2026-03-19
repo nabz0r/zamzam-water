@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from api.config import settings
-from api.routers import archaeology, chemistry, hydro, lab, publications, satellite
+from api.routers import admin, archaeology, chemistry, hydro, lab, publications, satellite
 
 app = FastAPI(
     title="Zamzam Research API",
@@ -24,6 +24,7 @@ app.include_router(archaeology.router)
 app.include_router(satellite.router)
 app.include_router(hydro.router)
 app.include_router(lab.router)
+app.include_router(admin.router)
 
 
 @app.get("/")

@@ -46,4 +46,12 @@ export const api = {
         body: JSON.stringify(data),
       }),
   },
+  admin: {
+    stats: () => fetchJson('/admin/stats'),
+    ingestPapers: () => fetchJson('/tasks/ingest-papers', { method: 'POST' }),
+    syncHydro: () => fetchJson('/tasks/sync-hydro', { method: 'POST' }),
+    fetchSatellite: () => fetchJson('/tasks/fetch-satellite', { method: 'POST' }),
+    parsePdfs: () => fetchJson('/tasks/parse-pdfs', { method: 'POST' }),
+    generateEmbeddings: () => fetchJson('/tasks/generate-embeddings', { method: 'POST' }),
+  },
 };

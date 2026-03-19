@@ -6,6 +6,7 @@ import PaperSearch from './components/PaperSearch'
 import SatelliteViewer from './components/SatelliteViewer'
 import HydroView from './components/HydroView'
 import LabTracker from './components/LabTracker'
+import AdminPanel from './components/AdminPanel'
 import { api } from './utils/api'
 
 const NAV_ITEMS = [
@@ -16,6 +17,7 @@ const NAV_ITEMS = [
   { key: 'satellite', label: 'Satellite', icon: '\u{1F6F0}' },
   { key: 'archaeology', label: 'Archaeology', icon: '\u{1F3DB}' },
   { key: 'lab', label: 'Lab', icon: '\u{1F52C}' },
+  { key: 'admin', label: 'Admin', icon: '\u2699\uFE0F' },
 ]
 
 function App() {
@@ -88,6 +90,7 @@ function App() {
         {page === 'satellite' && <SatelliteViewer />}
         {page === 'archaeology' && <ArchaeoMap />}
         {page === 'lab' && <LabTracker />}
+        {page === 'admin' && <AdminPanel />}
       </main>
     </div>
   )

@@ -123,8 +123,32 @@ def store_weather_data(records: list[dict], session: Optional[Session] = None) -
 
 
 def run_weather_sync(start_date: str = "2019-01-01") -> dict:
-    """Run the weather data sync pipeline."""
-    records = fetch_weather_data(start_date=start_date)
+    """Run the weather data sync pipeline.
+
+    Incrementally fetches only from the latest stored date to avoid
+    re-downloading the entire history each time.
+    """
+    engine = create_engine(settings.database_url_sync)
+    with Session(engine) as session:
+        # Find the latest date already stored (across all metrics)
+        result = session.execute(
+            select(func.max(HydroMonitoring.measured_at)).where(
+                HydroMonitoring.source == "open_meteo",
+            )
+        )
+        latest = result.scalar()
+
+    # Start from day after latest, or from start_date if DB is empty
+    if latest:
+        from datetime import timedelta
+        effective_start = (latest + timedelta(days=1)).strftime("%Y-%m-%d")
+        # If already up to date, skip the API call
+        if effective_start >= date.today().isoformat():
+            return {"records_fetched": 0, "records_stored": 0, "message": "already up to date"}
+    else:
+        effective_start = start_date
+
+    records = fetch_weather_data(start_date=effective_start)
     stored = store_weather_data(records)
     return {
         "records_fetched": len(records),

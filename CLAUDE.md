@@ -38,6 +38,8 @@ Secondary objective: catalog all Quranic archaeological sites with evidence stat
 - **Embedding dimension**: 768 (nomic-embed-text) instead of 1536 (Qwen2.5) — purpose-built for embeddings.
 - **Satellite source**: Planetary Computer STAC over GEE — no service account, free, COG tiles.
 - **Semantic search fallback**: `/publications/search?mode=auto|text|semantic`. Falls back to ilike when Ollama unavailable.
+- **Chemistry chart split**: Macro-elements (Ca, Mg, Na, TDS) and micro-elements (F, Li, As, Pb, Cd) on separate Y-axes.
+- **sync-hydro incremental**: Only fetches from the day after latest stored record, not from 2019 every time.
 
 ## Database schema
 
@@ -52,11 +54,22 @@ Six tables in PostgreSQL:
 
 All tables have: id (UUID), created_at, updated_at, source, notes.
 
+## Current data stats
+
+| Table | Count | Source |
+|-------|-------|--------|
+| publications | 115 | PubMed Entrez |
+| chemical_analyses | 10 | Seed (Bhardwaj 2023, Donia 2021) |
+| satellite_data | 50 | Planetary Computer Sentinel-2 L2A |
+| archaeological_sites | 12 | Literature compilation |
+| hydro_monitoring | 2635 days | Open-Meteo (2019–2026) |
+| lab_samples | 0 | (pending real lab work) |
+
 ## API endpoints (actual)
 
 ### Data
 - `GET /api/v1/publications` — paginated, filterable by year/journal
-- `GET /api/v1/publications/search?q=&mode=auto` — text or semantic search
+- `GET /api/v1/publications/search?q=&mode=auto` — text or semantic search (empty q → list all)
 - `GET /api/v1/publications/{id}`
 - `GET /api/v1/chemistry/elements` — distinct elements with stats
 - `GET /api/v1/chemistry/by-element/{symbol}`
@@ -71,6 +84,9 @@ All tables have: id (UUID), created_at, updated_at, source, notes.
 - `POST /api/v1/lab/samples`
 - `POST /api/v1/lab/samples/{id}/results` — CSV upload
 - `GET /api/v1/lab/samples/{id}/report`
+
+### Admin
+- `GET /api/v1/admin/stats` — table counts + last updated timestamps
 
 ### Task triggers
 - `POST /api/v1/tasks/ingest-papers`
