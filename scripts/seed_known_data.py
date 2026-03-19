@@ -1,10 +1,13 @@
-"""Seed the database with published Zamzam chemical compositions and Quranic archaeological sites."""
+"""Seed the database with published Zamzam chemical compositions and Quranic archaeological sites.
+
+Idempotent: skips if seed data already exists.
+"""
 
 import sys
 import uuid
 from datetime import datetime
 
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, func, select
 from sqlalchemy.orm import Session
 
 sys.path.insert(0, ".")
@@ -248,11 +251,39 @@ def main():
     Base.metadata.create_all(engine)
 
     with Session(engine) as session:
-        chem_count = seed_chemistry(session)
-        sites_count = seed_archaeological_sites(session)
-        session.commit()
-        print(f"Seeded {chem_count} chemical analyses")
-        print(f"Seeded {sites_count} archaeological sites")
+        # Check if seed data already exists
+        chem_count_existing = session.execute(
+            select(func.count()).select_from(ChemicalAnalysis).where(
+                ChemicalAnalysis.source == "paper",
+                ChemicalAnalysis.publication_doi == "10.26717/BJSTR.2023.48.007677",
+            )
+        ).scalar()
+        sites_count_existing = session.execute(
+            select(func.count()).select_from(ArchaeologicalSite).where(
+                ArchaeologicalSite.source == "literature",
+            )
+        ).scalar()
+
+        chem_count = 0
+        sites_count = 0
+
+        if chem_count_existing == 0:
+            chem_count = seed_chemistry(session)
+        else:
+            print(f"Chemical seed data already exists ({chem_count_existing} rows), skipping.")
+
+        if sites_count_existing == 0:
+            sites_count = seed_archaeological_sites(session)
+        else:
+            print(f"Archaeological sites already exist ({sites_count_existing} rows), skipping.")
+
+        if chem_count or sites_count:
+            session.commit()
+
+        if chem_count:
+            print(f"Seeded {chem_count} chemical analyses")
+        if sites_count:
+            print(f"Seeded {sites_count} archaeological sites")
 
 
 if __name__ == "__main__":
