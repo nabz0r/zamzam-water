@@ -209,8 +209,7 @@
         "Li": {"value": 0.2, "unit": "mg/L"},
         "SiO2": {"value": 7.3, "unit": "mg/L"}
       }
-    }
-    ,
+    },
     {
       "id": "perrier",
       "citation": "Perrier (official label)",
