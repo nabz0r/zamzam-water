@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+body {
+  margin: 0;
+  background-color: #0a0e1a;
+  color: #e2e8f0;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.leaflet-container {
+  background: #0f1629;
+}

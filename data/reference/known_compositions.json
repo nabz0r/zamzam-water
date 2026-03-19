@@ -1,0 +1,122 @@
+[
+  {
+    "element": "Ca",
+    "value": 93.0,
+    "unit": "mg/L",
+    "sample_source": "zamzam",
+    "analytical_method": "ICP-MS / ICP-OES",
+    "sample_location": "Masjid Al-Haram, Mecca",
+    "publication_doi": "10.26717/BJSTR.2023.48.007677",
+    "publication_year": 2023,
+    "source": "paper",
+    "notes": "Composite from Bhardwaj 2023 & Donia 2021"
+  },
+  {
+    "element": "Mg",
+    "value": 42.0,
+    "unit": "mg/L",
+    "sample_source": "zamzam",
+    "analytical_method": "ICP-MS / ICP-OES",
+    "sample_location": "Masjid Al-Haram, Mecca",
+    "publication_doi": "10.26717/BJSTR.2023.48.007677",
+    "publication_year": 2023,
+    "source": "paper",
+    "notes": "Composite from Bhardwaj 2023 & Donia 2021"
+  },
+  {
+    "element": "Na",
+    "value": 210.0,
+    "unit": "mg/L",
+    "sample_source": "zamzam",
+    "analytical_method": "ICP-MS / ICP-OES",
+    "sample_location": "Masjid Al-Haram, Mecca",
+    "publication_doi": "10.26717/BJSTR.2023.48.007677",
+    "publication_year": 2023,
+    "source": "paper",
+    "notes": "Composite from Bhardwaj 2023 & Donia 2021"
+  },
+  {
+    "element": "F",
+    "value": 0.74,
+    "unit": "mg/L",
+    "sample_source": "zamzam",
+    "analytical_method": "ICP-MS / ICP-OES",
+    "sample_location": "Masjid Al-Haram, Mecca",
+    "publication_doi": "10.26717/BJSTR.2023.48.007677",
+    "publication_year": 2023,
+    "source": "paper",
+    "notes": "Composite from Bhardwaj 2023 & Donia 2021"
+  },
+  {
+    "element": "Li",
+    "value": 0.012,
+    "unit": "mg/L",
+    "sample_source": "zamzam",
+    "analytical_method": "ICP-MS / ICP-OES",
+    "sample_location": "Masjid Al-Haram, Mecca",
+    "publication_doi": "10.26717/BJSTR.2023.48.007677",
+    "publication_year": 2023,
+    "source": "paper",
+    "notes": "Composite from Bhardwaj 2023 & Donia 2021"
+  },
+  {
+    "element": "As",
+    "value": 0.006,
+    "unit": "µg/L",
+    "sample_source": "zamzam",
+    "analytical_method": "ICP-MS / ICP-OES",
+    "sample_location": "Masjid Al-Haram, Mecca",
+    "publication_doi": "10.26717/BJSTR.2023.48.007677",
+    "publication_year": 2023,
+    "source": "paper",
+    "notes": "Composite from Bhardwaj 2023 & Donia 2021"
+  },
+  {
+    "element": "Pb",
+    "value": 0.0005,
+    "unit": "µg/L",
+    "sample_source": "zamzam",
+    "analytical_method": "ICP-MS / ICP-OES",
+    "sample_location": "Masjid Al-Haram, Mecca",
+    "publication_doi": "10.26717/BJSTR.2023.48.007677",
+    "publication_year": 2023,
+    "source": "paper",
+    "notes": "Composite from Bhardwaj 2023 & Donia 2021"
+  },
+  {
+    "element": "Cd",
+    "value": 0.001,
+    "unit": "µg/L",
+    "sample_source": "zamzam",
+    "analytical_method": "ICP-MS / ICP-OES",
+    "sample_location": "Masjid Al-Haram, Mecca",
+    "publication_doi": "10.26717/BJSTR.2023.48.007677",
+    "publication_year": 2023,
+    "source": "paper",
+    "notes": "Composite from Bhardwaj 2023 & Donia 2021"
+  },
+  {
+    "element": "pH",
+    "value": 7.95,
+    "unit": "-",
+    "sample_source": "zamzam",
+    "analytical_method": "ICP-MS / ICP-OES",
+    "sample_location": "Masjid Al-Haram, Mecca",
+    "publication_doi": "10.26717/BJSTR.2023.48.007677",
+    "publication_year": 2023,
+    "source": "paper",
+    "notes": "Composite from Bhardwaj 2023 & Donia 2021"
+  },
+  {
+    "element": "TDS",
+    "value": 813.0,
+    "unit": "mg/L",
+    "sample_source": "zamzam",
+    "analytical_method": "ICP-MS / ICP-OES",
+    "sample_location": "Masjid Al-Haram, Mecca",
+    "publication_doi": "10.26717/BJSTR.2023.48.007677",
+    "publication_year": 2023,
+    "source": "paper",
+    "notes": "Composite from Bhardwaj 2023 & Donia 2021"
+  }
+]

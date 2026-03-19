@@ -1,7 +1,29 @@
+# Python
 __pycache__/
 *.pyc
-.env
-data/raw/
-data/references/
+*.pyo
 *.egg-info/
 .venv/
+venv/
+*.egg
+
+# Environment
+.env
+
+# Data — large files gitignored, reference data tracked
+data/raw/
+data/papers/
+data/satellite/
+data/processed/
+
+# Node
+node_modules/
+dist/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
