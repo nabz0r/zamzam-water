@@ -79,3 +79,11 @@ async def trigger_sync_hydro():
     from api.services.weather_fetcher import run_weather_sync
     stats = run_weather_sync()
     return {"status": "completed", **stats}
+
+
+@app.post("/api/v1/tasks/extract-abstracts")
+async def trigger_extract_abstracts():
+    """Extract chemical values from publication abstracts using regex."""
+    from api.services.abstract_chemical_extractor import run_abstract_extraction
+    stats = run_abstract_extraction()
+    return {"status": "completed", **stats}

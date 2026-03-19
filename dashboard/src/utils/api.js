@@ -59,5 +59,6 @@ export const api = {
     generateEmbeddings: () => fetchJson('/tasks/generate-embeddings', { method: 'POST' }),
     seed: () => fetchJson('/admin/seed', { method: 'POST' }),
     classify: () => fetchJson('/admin/classify', { method: 'POST' }),
+    extractAbstracts: () => fetchJson('/tasks/extract-abstracts', { method: 'POST' }),
   },
 };

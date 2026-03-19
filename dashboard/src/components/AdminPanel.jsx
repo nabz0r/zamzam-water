@@ -44,6 +44,12 @@ const TASKS = [
     desc: 'Mark publications as relevant/not relevant to Zamzam research',
     action: () => api.admin.classify(),
   },
+  {
+    key: 'extract-abstracts',
+    label: 'Extract from Abstracts',
+    desc: 'Regex-extract chemical values (Ca, pH, TDS...) from relevant paper abstracts',
+    action: () => api.admin.extractAbstracts(),
+  },
 ]
 
 const TABLE_LABELS = {
@@ -110,6 +116,7 @@ function TaskButton({ task }) {
           {result.scenes_stored !== undefined && ` — ${result.scenes_stored} scenes stored`}
           {result.pdfs_parsed !== undefined && ` — ${result.pdfs_parsed} PDFs parsed`}
           {result.embeddings_generated !== undefined && ` — ${result.embeddings_generated} embeddings`}
+          {result.new_values_extracted !== undefined && ` — ${result.new_values_extracted} values from ${result.publications_with_data} papers (${result.abstracts_scanned} scanned)`}
           {result.output && ` — ${result.output}`}
         </div>
       )}
