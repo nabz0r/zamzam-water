@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import {
   BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid,
   ResponsiveContainer, ReferenceLine, Cell, Legend,
+  RadarChart, Radar, PolarGrid, PolarAngleAxis, PolarRadiusAxis,
 } from 'recharts'
 import { api } from '../utils/api'
 
@@ -40,6 +41,13 @@ const SOURCE_COLORS = {
   vittel: '#fbbf24',
   volvic: '#a78bfa',
   san_pellegrino: '#fb923c',
+  perrier: '#22d3ee',
+  gerolsteiner: '#e879f9',
+  fiji: '#4ade80',
+  acqua_panna: '#f97316',
+  highland_spring: '#14b8a6',
+  spa_reine: '#c084fc',
+  luxembourg_tap: '#f43f5e',
 }
 
 const SOURCE_LABELS = {
@@ -48,6 +56,13 @@ const SOURCE_LABELS = {
   vittel: 'Vittel',
   volvic: 'Volvic',
   san_pellegrino: 'S. Pellegrino',
+  perrier: 'Perrier',
+  gerolsteiner: 'Gerolsteiner',
+  fiji: 'Fiji',
+  acqua_panna: 'Acqua Panna',
+  highland_spring: 'Highland Sp.',
+  spa_reine: 'Spa Reine',
+  luxembourg_tap: 'Lux. Tap',
 }
 
 function CustomTooltip({ active, payload, label }) {
@@ -189,6 +204,135 @@ function WHOTable({ compareData }) {
   )
 }
 
+const RADAR_ELEMENTS = ['Ca', 'Mg', 'Na', 'K', 'Cl', 'SO4', 'HCO3', 'F']
+
+function RadarFingerprint({ compareData, selectedSources }) {
+  // Build per-source values for radar elements
+  const sourceVals = {}
+  for (const src of selectedSources) {
+    const rows = compareData.filter((d) => d.source === src)
+    const merged = {}
+    for (const row of rows) {
+      for (const [k, v] of Object.entries(row)) {
+        if (k !== 'source' && k !== 'year' && v !== undefined) merged[k] = v
+      }
+    }
+    sourceVals[src] = merged
+  }
+
+  // Normalize: find max per element across selected sources
+  const maxPerEl = {}
+  for (const el of RADAR_ELEMENTS) {
+    maxPerEl[el] = Math.max(...selectedSources.map((s) => sourceVals[s]?.[el] || 0), 1)
+  }
+
+  const radarData = RADAR_ELEMENTS.map((el) => {
+    const row = { element: el }
+    for (const src of selectedSources) {
+      row[src] = ((sourceVals[src]?.[el] || 0) / maxPerEl[el]) * 100
+    }
+    return row
+  })
+
+  if (selectedSources.length === 0) return null
+
+  return (
+    <div className="bg-[#0f1629] border border-[#1e2a4a] rounded-lg p-6 mb-6">
+      <h3 className="text-sm text-[#94a3b8] mb-4">Mineral Fingerprint (normalized radar)</h3>
+      <ResponsiveContainer width="100%" height={380}>
+        <RadarChart data={radarData}>
+          <PolarGrid stroke="#2a3358" />
+          <PolarAngleAxis dataKey="element" tick={{ fill: '#94a3b8', fontSize: 12 }} />
+          <PolarRadiusAxis angle={90} domain={[0, 100]} tick={false} axisLine={false} />
+          {selectedSources.map((src) => (
+            <Radar
+              key={src}
+              name={SOURCE_LABELS[src] || src}
+              dataKey={src}
+              stroke={SOURCE_COLORS[src] || '#94a3b8'}
+              fill={SOURCE_COLORS[src] || '#94a3b8'}
+              fillOpacity={src === 'zamzam' ? 0.15 : 0.05}
+              strokeWidth={src === 'zamzam' ? 2.5 : 1.5}
+            />
+          ))}
+          <Legend wrapperStyle={{ fontSize: 11, color: '#94a3b8' }} />
+          <Tooltip />
+        </RadarChart>
+      </ResponsiveContainer>
+    </div>
+  )
+}
+
+function Heatmap({ compareData, selectedSources }) {
+  const elements = ['Ca', 'Mg', 'Na', 'K', 'Cl', 'SO4', 'HCO3', 'F', 'TDS']
+
+  // Build matrix
+  const matrix = []
+  for (const src of selectedSources) {
+    const rows = compareData.filter((d) => d.source === src)
+    const merged = {}
+    for (const row of rows) {
+      for (const [k, v] of Object.entries(row)) {
+        if (k !== 'source' && k !== 'year' && v !== undefined) merged[k] = v
+      }
+    }
+    matrix.push({ source: src, ...merged })
+  }
+
+  // Max per element for normalization
+  const maxPerEl = {}
+  for (const el of elements) {
+    maxPerEl[el] = Math.max(...matrix.map((r) => r[el] || 0), 1)
+  }
+
+  if (selectedSources.length < 2) return null
+
+  return (
+    <div className="bg-[#0f1629] border border-[#1e2a4a] rounded-lg p-6 mb-6">
+      <h3 className="text-sm text-[#94a3b8] mb-4">Concentration Heatmap (normalized per element)</h3>
+      <div className="overflow-x-auto">
+        <table className="text-xs">
+          <thead>
+            <tr>
+              <th className="px-3 py-2 text-left text-[#64748b]">Source</th>
+              {elements.map((el) => (
+                <th key={el} className="px-3 py-2 text-center text-[#94a3b8] font-mono">{el}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {matrix.map((row) => (
+              <tr key={row.source}>
+                <td className="px-3 py-1.5 text-[#e2e8f0] whitespace-nowrap">
+                  <span className="inline-block w-2 h-2 rounded-full mr-1.5"
+                    style={{ backgroundColor: SOURCE_COLORS[row.source] || '#666' }} />
+                  {SOURCE_LABELS[row.source] || row.source}
+                </td>
+                {elements.map((el) => {
+                  const val = row[el]
+                  const norm = val ? val / maxPerEl[el] : 0
+                  const r = Math.round(norm * 220 + 35)
+                  const g = Math.round((1 - norm) * 100 + 30)
+                  const b = Math.round((1 - norm) * 60 + 30)
+                  return (
+                    <td key={el} className="px-3 py-1.5 text-center font-mono"
+                      style={{
+                        backgroundColor: val ? `rgba(${r}, ${g}, ${b}, 0.3)` : 'transparent',
+                        color: norm > 0.6 ? '#fbbf24' : '#94a3b8',
+                      }}>
+                      {val != null ? (val >= 1 ? val.toFixed(0) : val.toFixed(2)) : '—'}
+                    </td>
+                  )
+                })}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  )
+}
+
 export default function ChemExplorer() {
   const [availableSources, setAvailableSources] = useState([])
   const [selectedSources, setSelectedSources] = useState(['zamzam'])
@@ -288,6 +432,14 @@ export default function ChemExplorer() {
             compareData={compareData}
             selectedSources={selectedSources}
           />
+
+          {/* Radar fingerprint */}
+          {selectedSources.length >= 1 && (
+            <RadarFingerprint compareData={compareData} selectedSources={selectedSources} />
+          )}
+
+          {/* Heatmap */}
+          <Heatmap compareData={compareData} selectedSources={selectedSources} />
 
           {/* Trace elements (only if zamzam selected — others don't have trace data) */}
           {selectedSources.includes('zamzam') && (

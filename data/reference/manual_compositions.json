@@ -210,6 +210,160 @@
         "SiO2": {"value": 7.3, "unit": "mg/L"}
       }
     }
+    ,
+    {
+      "id": "perrier",
+      "citation": "Perrier (official label)",
+      "doi": null,
+      "year": 2024,
+      "method": "Manufacturer label",
+      "sample_location": "Vergeze, Gard, France",
+      "sample_source": "perrier",
+      "elements": {
+        "pH": {"value": 5.5, "unit": "-"},
+        "TDS": {"value": 475.0, "unit": "mg/L"},
+        "Ca": {"value": 147.3, "unit": "mg/L"},
+        "Mg": {"value": 3.4, "unit": "mg/L"},
+        "Na": {"value": 9.0, "unit": "mg/L"},
+        "K": {"value": 0.7, "unit": "mg/L"},
+        "Cl": {"value": 21.4, "unit": "mg/L"},
+        "SO4": {"value": 33.0, "unit": "mg/L"},
+        "HCO3": {"value": 390.0, "unit": "mg/L"},
+        "NO3": {"value": 3.8, "unit": "mg/L"},
+        "F": {"value": 0.12, "unit": "mg/L"}
+      }
+    },
+    {
+      "id": "gerolsteiner",
+      "citation": "Gerolsteiner Sprudel (official label)",
+      "doi": null,
+      "year": 2024,
+      "method": "Manufacturer label",
+      "sample_location": "Gerolstein, Eifel, Germany",
+      "sample_source": "gerolsteiner",
+      "elements": {
+        "pH": {"value": 6.5, "unit": "-"},
+        "TDS": {"value": 2527.0, "unit": "mg/L"},
+        "Ca": {"value": 348.0, "unit": "mg/L"},
+        "Mg": {"value": 108.0, "unit": "mg/L"},
+        "Na": {"value": 11.8, "unit": "mg/L"},
+        "K": {"value": 6.5, "unit": "mg/L"},
+        "Cl": {"value": 8.5, "unit": "mg/L"},
+        "SO4": {"value": 38.3, "unit": "mg/L"},
+        "HCO3": {"value": 1816.0, "unit": "mg/L"},
+        "F": {"value": 0.2, "unit": "mg/L"},
+        "SiO2": {"value": 28.0, "unit": "mg/L"}
+      }
+    },
+    {
+      "id": "fiji",
+      "citation": "Fiji Water (official label)",
+      "doi": null,
+      "year": 2024,
+      "method": "Manufacturer label",
+      "sample_location": "Yaqara Valley, Viti Levu, Fiji",
+      "sample_source": "fiji",
+      "elements": {
+        "pH": {"value": 7.7, "unit": "-"},
+        "TDS": {"value": 222.0, "unit": "mg/L"},
+        "Ca": {"value": 18.0, "unit": "mg/L"},
+        "Mg": {"value": 15.0, "unit": "mg/L"},
+        "Na": {"value": 18.0, "unit": "mg/L"},
+        "K": {"value": 5.0, "unit": "mg/L"},
+        "Cl": {"value": 9.3, "unit": "mg/L"},
+        "SO4": {"value": 2.0, "unit": "mg/L"},
+        "HCO3": {"value": 152.0, "unit": "mg/L"},
+        "F": {"value": 0.24, "unit": "mg/L"},
+        "SiO2": {"value": 93.0, "unit": "mg/L"}
+      }
+    },
+    {
+      "id": "acqua_panna",
+      "citation": "Acqua Panna (official label)",
+      "doi": null,
+      "year": 2024,
+      "method": "Manufacturer label",
+      "sample_location": "Scarperia, Tuscany, Italy",
+      "sample_source": "acqua_panna",
+      "elements": {
+        "pH": {"value": 8.2, "unit": "-"},
+        "TDS": {"value": 188.0, "unit": "mg/L"},
+        "Ca": {"value": 32.0, "unit": "mg/L"},
+        "Mg": {"value": 6.6, "unit": "mg/L"},
+        "Na": {"value": 6.1, "unit": "mg/L"},
+        "K": {"value": 0.9, "unit": "mg/L"},
+        "Cl": {"value": 7.4, "unit": "mg/L"},
+        "SO4": {"value": 22.0, "unit": "mg/L"},
+        "HCO3": {"value": 106.0, "unit": "mg/L"},
+        "NO3": {"value": 7.6, "unit": "mg/L"},
+        "F": {"value": 0.1, "unit": "mg/L"},
+        "SiO2": {"value": 5.3, "unit": "mg/L"}
+      }
+    },
+    {
+      "id": "highland_spring",
+      "citation": "Highland Spring (official label)",
+      "doi": null,
+      "year": 2024,
+      "method": "Manufacturer label",
+      "sample_location": "Ochil Hills, Perthshire, UK",
+      "sample_source": "highland_spring",
+      "elements": {
+        "pH": {"value": 7.8, "unit": "-"},
+        "TDS": {"value": 124.0, "unit": "mg/L"},
+        "Ca": {"value": 35.0, "unit": "mg/L"},
+        "Mg": {"value": 8.0, "unit": "mg/L"},
+        "Na": {"value": 6.0, "unit": "mg/L"},
+        "K": {"value": 0.6, "unit": "mg/L"},
+        "Cl": {"value": 7.0, "unit": "mg/L"},
+        "SO4": {"value": 5.4, "unit": "mg/L"},
+        "HCO3": {"value": 120.0, "unit": "mg/L"},
+        "NO3": {"value": 2.0, "unit": "mg/L"}
+      }
+    },
+    {
+      "id": "spa_reine",
+      "citation": "Spa Reine (official label)",
+      "doi": null,
+      "year": 2024,
+      "method": "Manufacturer label",
+      "sample_location": "Spa, Liege, Belgium",
+      "sample_source": "spa_reine",
+      "elements": {
+        "pH": {"value": 6.0, "unit": "-"},
+        "TDS": {"value": 33.0, "unit": "mg/L"},
+        "Ca": {"value": 4.5, "unit": "mg/L"},
+        "Mg": {"value": 1.3, "unit": "mg/L"},
+        "Na": {"value": 3.0, "unit": "mg/L"},
+        "K": {"value": 0.5, "unit": "mg/L"},
+        "Cl": {"value": 5.0, "unit": "mg/L"},
+        "SO4": {"value": 4.0, "unit": "mg/L"},
+        "HCO3": {"value": 15.0, "unit": "mg/L"},
+        "NO3": {"value": 1.9, "unit": "mg/L"}
+      }
+    },
+    {
+      "id": "luxembourg_tap",
+      "citation": "Luxembourg City tap water (SEBES/Ville de Luxembourg 2024)",
+      "doi": null,
+      "year": 2024,
+      "method": "Municipal water quality report",
+      "sample_location": "Luxembourg City, Luxembourg",
+      "sample_source": "luxembourg_tap",
+      "elements": {
+        "pH": {"value": 7.5, "unit": "-"},
+        "TDS": {"value": 310.0, "unit": "mg/L"},
+        "Ca": {"value": 85.0, "unit": "mg/L"},
+        "Mg": {"value": 9.0, "unit": "mg/L"},
+        "Na": {"value": 8.5, "unit": "mg/L"},
+        "K": {"value": 1.5, "unit": "mg/L"},
+        "Cl": {"value": 18.0, "unit": "mg/L"},
+        "SO4": {"value": 25.0, "unit": "mg/L"},
+        "HCO3": {"value": 245.0, "unit": "mg/L"},
+        "NO3": {"value": 15.0, "unit": "mg/L"},
+        "F": {"value": 0.08, "unit": "mg/L"}
+      }
+    }
   ],
   "who_limits": {
     "description": "WHO Guidelines for Drinking-water Quality (4th ed, 2011 + amendments)",

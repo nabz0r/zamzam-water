@@ -56,6 +56,9 @@ parse-pdfs:
 classify:
 	PYTHONPATH=. python3 scripts/classify_papers.py
 
+export:
+	PYTHONPATH=. python3 scripts/export_dataset.py
+
 migrate:
 	PYTHONPATH=. alembic revision --autogenerate -m "$(msg)"
 	PYTHONPATH=. alembic upgrade head

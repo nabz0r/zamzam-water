@@ -1,0 +1,187 @@
+element,value,unit,sample_source,water_type,year,method,location,citation,doi
+Ca,93.0,mg/L,zamzam,zamzam,2023,ICP-MS / ICP-OES,"Masjid Al-Haram, Mecca",Bhardwaj 2023 (BJSTR),10.26717/BJSTR.2023.48.007677
+Mg,42.0,mg/L,zamzam,zamzam,2023,ICP-MS / ICP-OES,"Masjid Al-Haram, Mecca",Bhardwaj 2023 (BJSTR),10.26717/BJSTR.2023.48.007677
+Na,210.0,mg/L,zamzam,zamzam,2023,ICP-MS / ICP-OES,"Masjid Al-Haram, Mecca",Bhardwaj 2023 (BJSTR),10.26717/BJSTR.2023.48.007677
+K,43.3,mg/L,zamzam,zamzam,2023,ICP-MS / ICP-OES,"Masjid Al-Haram, Mecca",Bhardwaj 2023 (BJSTR),10.26717/BJSTR.2023.48.007677
+F,0.74,mg/L,zamzam,zamzam,2023,ICP-MS / ICP-OES,"Masjid Al-Haram, Mecca",Bhardwaj 2023 (BJSTR),10.26717/BJSTR.2023.48.007677
+Li,0.012,mg/L,zamzam,zamzam,2023,ICP-MS / ICP-OES,"Masjid Al-Haram, Mecca",Bhardwaj 2023 (BJSTR),10.26717/BJSTR.2023.48.007677
+As,0.006,µg/L,zamzam,zamzam,2023,ICP-MS / ICP-OES,"Masjid Al-Haram, Mecca",Bhardwaj 2023 (BJSTR),10.26717/BJSTR.2023.48.007677
+Pb,0.0005,µg/L,zamzam,zamzam,2023,ICP-MS / ICP-OES,"Masjid Al-Haram, Mecca",Bhardwaj 2023 (BJSTR),10.26717/BJSTR.2023.48.007677
+Cd,0.001,µg/L,zamzam,zamzam,2023,ICP-MS / ICP-OES,"Masjid Al-Haram, Mecca",Bhardwaj 2023 (BJSTR),10.26717/BJSTR.2023.48.007677
+pH,7.95,-,zamzam,zamzam,2023,ICP-MS / ICP-OES,"Masjid Al-Haram, Mecca",Bhardwaj 2023 (BJSTR),10.26717/BJSTR.2023.48.007677
+TDS,813.0,mg/L,zamzam,zamzam,2023,ICP-MS / ICP-OES,"Masjid Al-Haram, Mecca",Bhardwaj 2023 (BJSTR),10.26717/BJSTR.2023.48.007677
+pH,7.9,-,zamzam,zamzam,2021,ICP-OES / Ion Chromatography,"Bottled Zamzam, Saudi Arabia",Donia & Mortada 2021 (Heliyon),10.1016/j.heliyon.2021.e07346
+TDS,835.0,mg/L,zamzam,zamzam,2021,ICP-OES / Ion Chromatography,"Bottled Zamzam, Saudi Arabia",Donia & Mortada 2021 (Heliyon),10.1016/j.heliyon.2021.e07346
+Na,197.0,mg/L,zamzam,zamzam,2021,ICP-OES / Ion Chromatography,"Bottled Zamzam, Saudi Arabia",Donia & Mortada 2021 (Heliyon),10.1016/j.heliyon.2021.e07346
+K,47.5,mg/L,zamzam,zamzam,2021,ICP-OES / Ion Chromatography,"Bottled Zamzam, Saudi Arabia",Donia & Mortada 2021 (Heliyon),10.1016/j.heliyon.2021.e07346
+Ca,96.0,mg/L,zamzam,zamzam,2021,ICP-OES / Ion Chromatography,"Bottled Zamzam, Saudi Arabia",Donia & Mortada 2021 (Heliyon),10.1016/j.heliyon.2021.e07346
+Mg,38.7,mg/L,zamzam,zamzam,2021,ICP-OES / Ion Chromatography,"Bottled Zamzam, Saudi Arabia",Donia & Mortada 2021 (Heliyon),10.1016/j.heliyon.2021.e07346
+Fe,0.015,mg/L,zamzam,zamzam,2021,ICP-OES / Ion Chromatography,"Bottled Zamzam, Saudi Arabia",Donia & Mortada 2021 (Heliyon),10.1016/j.heliyon.2021.e07346
+Cu,0.004,mg/L,zamzam,zamzam,2021,ICP-OES / Ion Chromatography,"Bottled Zamzam, Saudi Arabia",Donia & Mortada 2021 (Heliyon),10.1016/j.heliyon.2021.e07346
+Zn,0.035,mg/L,zamzam,zamzam,2021,ICP-OES / Ion Chromatography,"Bottled Zamzam, Saudi Arabia",Donia & Mortada 2021 (Heliyon),10.1016/j.heliyon.2021.e07346
+Cl,163.3,mg/L,zamzam,zamzam,2021,ICP-OES / Ion Chromatography,"Bottled Zamzam, Saudi Arabia",Donia & Mortada 2021 (Heliyon),10.1016/j.heliyon.2021.e07346
+SO4,124.0,mg/L,zamzam,zamzam,2021,ICP-OES / Ion Chromatography,"Bottled Zamzam, Saudi Arabia",Donia & Mortada 2021 (Heliyon),10.1016/j.heliyon.2021.e07346
+HCO3,195.4,mg/L,zamzam,zamzam,2021,ICP-OES / Ion Chromatography,"Bottled Zamzam, Saudi Arabia",Donia & Mortada 2021 (Heliyon),10.1016/j.heliyon.2021.e07346
+NO3,23.7,mg/L,zamzam,zamzam,2021,ICP-OES / Ion Chromatography,"Bottled Zamzam, Saudi Arabia",Donia & Mortada 2021 (Heliyon),10.1016/j.heliyon.2021.e07346
+pH,7.8,-,zamzam,zamzam,2012,ICP-MS / IC,Zamzam well direct sampling,Shomar 2012 (J Water Health / Springer),10.2166/wh.2012.081
+TDS,980.0,mg/L,zamzam,zamzam,2012,ICP-MS / IC,Zamzam well direct sampling,Shomar 2012 (J Water Health / Springer),10.2166/wh.2012.081
+EC,1420.0,µS/cm,zamzam,zamzam,2012,ICP-MS / IC,Zamzam well direct sampling,Shomar 2012 (J Water Health / Springer),10.2166/wh.2012.081
+Na,133.0,mg/L,zamzam,zamzam,2012,ICP-MS / IC,Zamzam well direct sampling,Shomar 2012 (J Water Health / Springer),10.2166/wh.2012.081
+K,51.2,mg/L,zamzam,zamzam,2012,ICP-MS / IC,Zamzam well direct sampling,Shomar 2012 (J Water Health / Springer),10.2166/wh.2012.081
+Ca,78.0,mg/L,zamzam,zamzam,2012,ICP-MS / IC,Zamzam well direct sampling,Shomar 2012 (J Water Health / Springer),10.2166/wh.2012.081
+Mg,24.0,mg/L,zamzam,zamzam,2012,ICP-MS / IC,Zamzam well direct sampling,Shomar 2012 (J Water Health / Springer),10.2166/wh.2012.081
+Cl,163.0,mg/L,zamzam,zamzam,2012,ICP-MS / IC,Zamzam well direct sampling,Shomar 2012 (J Water Health / Springer),10.2166/wh.2012.081
+SO4,101.0,mg/L,zamzam,zamzam,2012,ICP-MS / IC,Zamzam well direct sampling,Shomar 2012 (J Water Health / Springer),10.2166/wh.2012.081
+HCO3,280.0,mg/L,zamzam,zamzam,2012,ICP-MS / IC,Zamzam well direct sampling,Shomar 2012 (J Water Health / Springer),10.2166/wh.2012.081
+NO3,49.3,mg/L,zamzam,zamzam,2012,ICP-MS / IC,Zamzam well direct sampling,Shomar 2012 (J Water Health / Springer),10.2166/wh.2012.081
+F,0.68,mg/L,zamzam,zamzam,2012,ICP-MS / IC,Zamzam well direct sampling,Shomar 2012 (J Water Health / Springer),10.2166/wh.2012.081
+Cr,0.02,mg/L,zamzam,zamzam,2012,ICP-MS / IC,Zamzam well direct sampling,Shomar 2012 (J Water Health / Springer),10.2166/wh.2012.081
+Mn,0.002,mg/L,zamzam,zamzam,2012,ICP-MS / IC,Zamzam well direct sampling,Shomar 2012 (J Water Health / Springer),10.2166/wh.2012.081
+Ni,0.003,mg/L,zamzam,zamzam,2012,ICP-MS / IC,Zamzam well direct sampling,Shomar 2012 (J Water Health / Springer),10.2166/wh.2012.081
+Sr,0.94,mg/L,zamzam,zamzam,2012,ICP-MS / IC,Zamzam well direct sampling,Shomar 2012 (J Water Health / Springer),10.2166/wh.2012.081
+Ba,0.071,mg/L,zamzam,zamzam,2012,ICP-MS / IC,Zamzam well direct sampling,Shomar 2012 (J Water Health / Springer),10.2166/wh.2012.081
+Li,0.015,mg/L,zamzam,zamzam,2012,ICP-MS / IC,Zamzam well direct sampling,Shomar 2012 (J Water Health / Springer),10.2166/wh.2012.081
+As,0.013,µg/L,zamzam,zamzam,2012,ICP-MS / IC,Zamzam well direct sampling,Shomar 2012 (J Water Health / Springer),10.2166/wh.2012.081
+pH,7.75,-,zamzam,zamzam,2009,Standard methods / Mass spectrometry,"Zamzam well, Mecca",Al-Gamal 2009 (Environ Geol),10.1007/s00254-009-1352-8
+TDS,1090.0,mg/L,zamzam,zamzam,2009,Standard methods / Mass spectrometry,"Zamzam well, Mecca",Al-Gamal 2009 (Environ Geol),10.1007/s00254-009-1352-8
+EC,1580.0,µS/cm,zamzam,zamzam,2009,Standard methods / Mass spectrometry,"Zamzam well, Mecca",Al-Gamal 2009 (Environ Geol),10.1007/s00254-009-1352-8
+Na,148.0,mg/L,zamzam,zamzam,2009,Standard methods / Mass spectrometry,"Zamzam well, Mecca",Al-Gamal 2009 (Environ Geol),10.1007/s00254-009-1352-8
+K,42.0,mg/L,zamzam,zamzam,2009,Standard methods / Mass spectrometry,"Zamzam well, Mecca",Al-Gamal 2009 (Environ Geol),10.1007/s00254-009-1352-8
+Ca,88.0,mg/L,zamzam,zamzam,2009,Standard methods / Mass spectrometry,"Zamzam well, Mecca",Al-Gamal 2009 (Environ Geol),10.1007/s00254-009-1352-8
+Mg,18.0,mg/L,zamzam,zamzam,2009,Standard methods / Mass spectrometry,"Zamzam well, Mecca",Al-Gamal 2009 (Environ Geol),10.1007/s00254-009-1352-8
+Cl,179.0,mg/L,zamzam,zamzam,2009,Standard methods / Mass spectrometry,"Zamzam well, Mecca",Al-Gamal 2009 (Environ Geol),10.1007/s00254-009-1352-8
+SO4,134.0,mg/L,zamzam,zamzam,2009,Standard methods / Mass spectrometry,"Zamzam well, Mecca",Al-Gamal 2009 (Environ Geol),10.1007/s00254-009-1352-8
+HCO3,280.0,mg/L,zamzam,zamzam,2009,Standard methods / Mass spectrometry,"Zamzam well, Mecca",Al-Gamal 2009 (Environ Geol),10.1007/s00254-009-1352-8
+NO3,65.0,mg/L,zamzam,zamzam,2009,Standard methods / Mass spectrometry,"Zamzam well, Mecca",Al-Gamal 2009 (Environ Geol),10.1007/s00254-009-1352-8
+pH,7.9,-,zamzam,zamzam,2025,Literature review aggregate,Multiple studies (aggregated ranges),EJEBA 2025 Review (aggregated),
+TDS,900.0,mg/L,zamzam,zamzam,2025,Literature review aggregate,Multiple studies (aggregated ranges),EJEBA 2025 Review (aggregated),
+Na,175.0,mg/L,zamzam,zamzam,2025,Literature review aggregate,Multiple studies (aggregated ranges),EJEBA 2025 Review (aggregated),
+K,45.0,mg/L,zamzam,zamzam,2025,Literature review aggregate,Multiple studies (aggregated ranges),EJEBA 2025 Review (aggregated),
+Ca,89.0,mg/L,zamzam,zamzam,2025,Literature review aggregate,Multiple studies (aggregated ranges),EJEBA 2025 Review (aggregated),
+Mg,35.0,mg/L,zamzam,zamzam,2025,Literature review aggregate,Multiple studies (aggregated ranges),EJEBA 2025 Review (aggregated),
+Cl,165.0,mg/L,zamzam,zamzam,2025,Literature review aggregate,Multiple studies (aggregated ranges),EJEBA 2025 Review (aggregated),
+SO4,120.0,mg/L,zamzam,zamzam,2025,Literature review aggregate,Multiple studies (aggregated ranges),EJEBA 2025 Review (aggregated),
+HCO3,225.0,mg/L,zamzam,zamzam,2025,Literature review aggregate,Multiple studies (aggregated ranges),EJEBA 2025 Review (aggregated),
+F,0.72,mg/L,zamzam,zamzam,2025,Literature review aggregate,Multiple studies (aggregated ranges),EJEBA 2025 Review (aggregated),
+pH,7.2,-,evian,mineral_water,2024,Manufacturer label,"Evian-les-Bains, France",Evian (official label),
+TDS,309.0,mg/L,evian,mineral_water,2024,Manufacturer label,"Evian-les-Bains, France",Evian (official label),
+Ca,80.0,mg/L,evian,mineral_water,2024,Manufacturer label,"Evian-les-Bains, France",Evian (official label),
+Mg,26.0,mg/L,evian,mineral_water,2024,Manufacturer label,"Evian-les-Bains, France",Evian (official label),
+Na,6.5,mg/L,evian,mineral_water,2024,Manufacturer label,"Evian-les-Bains, France",Evian (official label),
+K,1.0,mg/L,evian,mineral_water,2024,Manufacturer label,"Evian-les-Bains, France",Evian (official label),
+Cl,6.8,mg/L,evian,mineral_water,2024,Manufacturer label,"Evian-les-Bains, France",Evian (official label),
+SO4,12.6,mg/L,evian,mineral_water,2024,Manufacturer label,"Evian-les-Bains, France",Evian (official label),
+HCO3,360.0,mg/L,evian,mineral_water,2024,Manufacturer label,"Evian-les-Bains, France",Evian (official label),
+NO3,3.7,mg/L,evian,mineral_water,2024,Manufacturer label,"Evian-les-Bains, France",Evian (official label),
+SiO2,15.0,mg/L,evian,mineral_water,2024,Manufacturer label,"Evian-les-Bains, France",Evian (official label),
+pH,7.4,-,vittel,mineral_water,2024,Manufacturer label,"Vittel, Vosges, France",Vittel (official label),
+TDS,846.0,mg/L,vittel,mineral_water,2024,Manufacturer label,"Vittel, Vosges, France",Vittel (official label),
+Ca,202.0,mg/L,vittel,mineral_water,2024,Manufacturer label,"Vittel, Vosges, France",Vittel (official label),
+Mg,42.0,mg/L,vittel,mineral_water,2024,Manufacturer label,"Vittel, Vosges, France",Vittel (official label),
+Na,3.8,mg/L,vittel,mineral_water,2024,Manufacturer label,"Vittel, Vosges, France",Vittel (official label),
+K,1.0,mg/L,vittel,mineral_water,2024,Manufacturer label,"Vittel, Vosges, France",Vittel (official label),
+Cl,0.0,mg/L,vittel,mineral_water,2024,Manufacturer label,"Vittel, Vosges, France",Vittel (official label),
+SO4,306.0,mg/L,vittel,mineral_water,2024,Manufacturer label,"Vittel, Vosges, France",Vittel (official label),
+HCO3,402.0,mg/L,vittel,mineral_water,2024,Manufacturer label,"Vittel, Vosges, France",Vittel (official label),
+NO3,4.1,mg/L,vittel,mineral_water,2024,Manufacturer label,"Vittel, Vosges, France",Vittel (official label),
+pH,7.0,-,volvic,mineral_water,2024,Manufacturer label,"Volvic, Puy-de-Dome, France",Volvic (official label),
+TDS,130.0,mg/L,volvic,mineral_water,2024,Manufacturer label,"Volvic, Puy-de-Dome, France",Volvic (official label),
+Ca,12.0,mg/L,volvic,mineral_water,2024,Manufacturer label,"Volvic, Puy-de-Dome, France",Volvic (official label),
+Mg,8.0,mg/L,volvic,mineral_water,2024,Manufacturer label,"Volvic, Puy-de-Dome, France",Volvic (official label),
+Na,12.0,mg/L,volvic,mineral_water,2024,Manufacturer label,"Volvic, Puy-de-Dome, France",Volvic (official label),
+K,6.2,mg/L,volvic,mineral_water,2024,Manufacturer label,"Volvic, Puy-de-Dome, France",Volvic (official label),
+Cl,15.0,mg/L,volvic,mineral_water,2024,Manufacturer label,"Volvic, Puy-de-Dome, France",Volvic (official label),
+SO4,9.0,mg/L,volvic,mineral_water,2024,Manufacturer label,"Volvic, Puy-de-Dome, France",Volvic (official label),
+HCO3,74.0,mg/L,volvic,mineral_water,2024,Manufacturer label,"Volvic, Puy-de-Dome, France",Volvic (official label),
+NO3,6.3,mg/L,volvic,mineral_water,2024,Manufacturer label,"Volvic, Puy-de-Dome, France",Volvic (official label),
+SiO2,32.0,mg/L,volvic,mineral_water,2024,Manufacturer label,"Volvic, Puy-de-Dome, France",Volvic (official label),
+pH,7.7,-,san_pellegrino,mineral_water,2024,Manufacturer label,"San Pellegrino Terme, Lombardy, Italy",San Pellegrino (official label),
+TDS,854.0,mg/L,san_pellegrino,mineral_water,2024,Manufacturer label,"San Pellegrino Terme, Lombardy, Italy",San Pellegrino (official label),
+Ca,174.0,mg/L,san_pellegrino,mineral_water,2024,Manufacturer label,"San Pellegrino Terme, Lombardy, Italy",San Pellegrino (official label),
+Mg,51.4,mg/L,san_pellegrino,mineral_water,2024,Manufacturer label,"San Pellegrino Terme, Lombardy, Italy",San Pellegrino (official label),
+Na,33.3,mg/L,san_pellegrino,mineral_water,2024,Manufacturer label,"San Pellegrino Terme, Lombardy, Italy",San Pellegrino (official label),
+K,2.2,mg/L,san_pellegrino,mineral_water,2024,Manufacturer label,"San Pellegrino Terme, Lombardy, Italy",San Pellegrino (official label),
+Cl,52.0,mg/L,san_pellegrino,mineral_water,2024,Manufacturer label,"San Pellegrino Terme, Lombardy, Italy",San Pellegrino (official label),
+SO4,430.0,mg/L,san_pellegrino,mineral_water,2024,Manufacturer label,"San Pellegrino Terme, Lombardy, Italy",San Pellegrino (official label),
+HCO3,245.0,mg/L,san_pellegrino,mineral_water,2024,Manufacturer label,"San Pellegrino Terme, Lombardy, Italy",San Pellegrino (official label),
+NO3,2.9,mg/L,san_pellegrino,mineral_water,2024,Manufacturer label,"San Pellegrino Terme, Lombardy, Italy",San Pellegrino (official label),
+F,0.5,mg/L,san_pellegrino,mineral_water,2024,Manufacturer label,"San Pellegrino Terme, Lombardy, Italy",San Pellegrino (official label),
+Sr,2.8,mg/L,san_pellegrino,mineral_water,2024,Manufacturer label,"San Pellegrino Terme, Lombardy, Italy",San Pellegrino (official label),
+Li,0.2,mg/L,san_pellegrino,mineral_water,2024,Manufacturer label,"San Pellegrino Terme, Lombardy, Italy",San Pellegrino (official label),
+SiO2,7.3,mg/L,san_pellegrino,mineral_water,2024,Manufacturer label,"San Pellegrino Terme, Lombardy, Italy",San Pellegrino (official label),
+pH,5.5,-,perrier,mineral_water,2024,Manufacturer label,"Vergeze, Gard, France",Perrier (official label),
+TDS,475.0,mg/L,perrier,mineral_water,2024,Manufacturer label,"Vergeze, Gard, France",Perrier (official label),
+Ca,147.3,mg/L,perrier,mineral_water,2024,Manufacturer label,"Vergeze, Gard, France",Perrier (official label),
+Mg,3.4,mg/L,perrier,mineral_water,2024,Manufacturer label,"Vergeze, Gard, France",Perrier (official label),
+Na,9.0,mg/L,perrier,mineral_water,2024,Manufacturer label,"Vergeze, Gard, France",Perrier (official label),
+K,0.7,mg/L,perrier,mineral_water,2024,Manufacturer label,"Vergeze, Gard, France",Perrier (official label),
+Cl,21.4,mg/L,perrier,mineral_water,2024,Manufacturer label,"Vergeze, Gard, France",Perrier (official label),
+SO4,33.0,mg/L,perrier,mineral_water,2024,Manufacturer label,"Vergeze, Gard, France",Perrier (official label),
+HCO3,390.0,mg/L,perrier,mineral_water,2024,Manufacturer label,"Vergeze, Gard, France",Perrier (official label),
+NO3,3.8,mg/L,perrier,mineral_water,2024,Manufacturer label,"Vergeze, Gard, France",Perrier (official label),
+F,0.12,mg/L,perrier,mineral_water,2024,Manufacturer label,"Vergeze, Gard, France",Perrier (official label),
+pH,6.5,-,gerolsteiner,mineral_water,2024,Manufacturer label,"Gerolstein, Eifel, Germany",Gerolsteiner Sprudel (official label),
+TDS,2527.0,mg/L,gerolsteiner,mineral_water,2024,Manufacturer label,"Gerolstein, Eifel, Germany",Gerolsteiner Sprudel (official label),
+Ca,348.0,mg/L,gerolsteiner,mineral_water,2024,Manufacturer label,"Gerolstein, Eifel, Germany",Gerolsteiner Sprudel (official label),
+Mg,108.0,mg/L,gerolsteiner,mineral_water,2024,Manufacturer label,"Gerolstein, Eifel, Germany",Gerolsteiner Sprudel (official label),
+Na,11.8,mg/L,gerolsteiner,mineral_water,2024,Manufacturer label,"Gerolstein, Eifel, Germany",Gerolsteiner Sprudel (official label),
+K,6.5,mg/L,gerolsteiner,mineral_water,2024,Manufacturer label,"Gerolstein, Eifel, Germany",Gerolsteiner Sprudel (official label),
+Cl,8.5,mg/L,gerolsteiner,mineral_water,2024,Manufacturer label,"Gerolstein, Eifel, Germany",Gerolsteiner Sprudel (official label),
+SO4,38.3,mg/L,gerolsteiner,mineral_water,2024,Manufacturer label,"Gerolstein, Eifel, Germany",Gerolsteiner Sprudel (official label),
+HCO3,1816.0,mg/L,gerolsteiner,mineral_water,2024,Manufacturer label,"Gerolstein, Eifel, Germany",Gerolsteiner Sprudel (official label),
+F,0.2,mg/L,gerolsteiner,mineral_water,2024,Manufacturer label,"Gerolstein, Eifel, Germany",Gerolsteiner Sprudel (official label),
+SiO2,28.0,mg/L,gerolsteiner,mineral_water,2024,Manufacturer label,"Gerolstein, Eifel, Germany",Gerolsteiner Sprudel (official label),
+pH,7.7,-,fiji,mineral_water,2024,Manufacturer label,"Yaqara Valley, Viti Levu, Fiji",Fiji Water (official label),
+TDS,222.0,mg/L,fiji,mineral_water,2024,Manufacturer label,"Yaqara Valley, Viti Levu, Fiji",Fiji Water (official label),
+Ca,18.0,mg/L,fiji,mineral_water,2024,Manufacturer label,"Yaqara Valley, Viti Levu, Fiji",Fiji Water (official label),
+Mg,15.0,mg/L,fiji,mineral_water,2024,Manufacturer label,"Yaqara Valley, Viti Levu, Fiji",Fiji Water (official label),
+Na,18.0,mg/L,fiji,mineral_water,2024,Manufacturer label,"Yaqara Valley, Viti Levu, Fiji",Fiji Water (official label),
+K,5.0,mg/L,fiji,mineral_water,2024,Manufacturer label,"Yaqara Valley, Viti Levu, Fiji",Fiji Water (official label),
+Cl,9.3,mg/L,fiji,mineral_water,2024,Manufacturer label,"Yaqara Valley, Viti Levu, Fiji",Fiji Water (official label),
+SO4,2.0,mg/L,fiji,mineral_water,2024,Manufacturer label,"Yaqara Valley, Viti Levu, Fiji",Fiji Water (official label),
+HCO3,152.0,mg/L,fiji,mineral_water,2024,Manufacturer label,"Yaqara Valley, Viti Levu, Fiji",Fiji Water (official label),
+F,0.24,mg/L,fiji,mineral_water,2024,Manufacturer label,"Yaqara Valley, Viti Levu, Fiji",Fiji Water (official label),
+SiO2,93.0,mg/L,fiji,mineral_water,2024,Manufacturer label,"Yaqara Valley, Viti Levu, Fiji",Fiji Water (official label),
+pH,8.2,-,acqua_panna,mineral_water,2024,Manufacturer label,"Scarperia, Tuscany, Italy",Acqua Panna (official label),
+TDS,188.0,mg/L,acqua_panna,mineral_water,2024,Manufacturer label,"Scarperia, Tuscany, Italy",Acqua Panna (official label),
+Ca,32.0,mg/L,acqua_panna,mineral_water,2024,Manufacturer label,"Scarperia, Tuscany, Italy",Acqua Panna (official label),
+Mg,6.6,mg/L,acqua_panna,mineral_water,2024,Manufacturer label,"Scarperia, Tuscany, Italy",Acqua Panna (official label),
+Na,6.1,mg/L,acqua_panna,mineral_water,2024,Manufacturer label,"Scarperia, Tuscany, Italy",Acqua Panna (official label),
+K,0.9,mg/L,acqua_panna,mineral_water,2024,Manufacturer label,"Scarperia, Tuscany, Italy",Acqua Panna (official label),
+Cl,7.4,mg/L,acqua_panna,mineral_water,2024,Manufacturer label,"Scarperia, Tuscany, Italy",Acqua Panna (official label),
+SO4,22.0,mg/L,acqua_panna,mineral_water,2024,Manufacturer label,"Scarperia, Tuscany, Italy",Acqua Panna (official label),
+HCO3,106.0,mg/L,acqua_panna,mineral_water,2024,Manufacturer label,"Scarperia, Tuscany, Italy",Acqua Panna (official label),
+NO3,7.6,mg/L,acqua_panna,mineral_water,2024,Manufacturer label,"Scarperia, Tuscany, Italy",Acqua Panna (official label),
+F,0.1,mg/L,acqua_panna,mineral_water,2024,Manufacturer label,"Scarperia, Tuscany, Italy",Acqua Panna (official label),
+SiO2,5.3,mg/L,acqua_panna,mineral_water,2024,Manufacturer label,"Scarperia, Tuscany, Italy",Acqua Panna (official label),
+pH,7.8,-,highland_spring,mineral_water,2024,Manufacturer label,"Ochil Hills, Perthshire, UK",Highland Spring (official label),
+TDS,124.0,mg/L,highland_spring,mineral_water,2024,Manufacturer label,"Ochil Hills, Perthshire, UK",Highland Spring (official label),
+Ca,35.0,mg/L,highland_spring,mineral_water,2024,Manufacturer label,"Ochil Hills, Perthshire, UK",Highland Spring (official label),
+Mg,8.0,mg/L,highland_spring,mineral_water,2024,Manufacturer label,"Ochil Hills, Perthshire, UK",Highland Spring (official label),
+Na,6.0,mg/L,highland_spring,mineral_water,2024,Manufacturer label,"Ochil Hills, Perthshire, UK",Highland Spring (official label),
+K,0.6,mg/L,highland_spring,mineral_water,2024,Manufacturer label,"Ochil Hills, Perthshire, UK",Highland Spring (official label),
+Cl,7.0,mg/L,highland_spring,mineral_water,2024,Manufacturer label,"Ochil Hills, Perthshire, UK",Highland Spring (official label),
+SO4,5.4,mg/L,highland_spring,mineral_water,2024,Manufacturer label,"Ochil Hills, Perthshire, UK",Highland Spring (official label),
+HCO3,120.0,mg/L,highland_spring,mineral_water,2024,Manufacturer label,"Ochil Hills, Perthshire, UK",Highland Spring (official label),
+NO3,2.0,mg/L,highland_spring,mineral_water,2024,Manufacturer label,"Ochil Hills, Perthshire, UK",Highland Spring (official label),
+pH,6.0,-,spa_reine,mineral_water,2024,Manufacturer label,"Spa, Liege, Belgium",Spa Reine (official label),
+TDS,33.0,mg/L,spa_reine,mineral_water,2024,Manufacturer label,"Spa, Liege, Belgium",Spa Reine (official label),
+Ca,4.5,mg/L,spa_reine,mineral_water,2024,Manufacturer label,"Spa, Liege, Belgium",Spa Reine (official label),
+Mg,1.3,mg/L,spa_reine,mineral_water,2024,Manufacturer label,"Spa, Liege, Belgium",Spa Reine (official label),
+Na,3.0,mg/L,spa_reine,mineral_water,2024,Manufacturer label,"Spa, Liege, Belgium",Spa Reine (official label),
+K,0.5,mg/L,spa_reine,mineral_water,2024,Manufacturer label,"Spa, Liege, Belgium",Spa Reine (official label),
+Cl,5.0,mg/L,spa_reine,mineral_water,2024,Manufacturer label,"Spa, Liege, Belgium",Spa Reine (official label),
+SO4,4.0,mg/L,spa_reine,mineral_water,2024,Manufacturer label,"Spa, Liege, Belgium",Spa Reine (official label),
+HCO3,15.0,mg/L,spa_reine,mineral_water,2024,Manufacturer label,"Spa, Liege, Belgium",Spa Reine (official label),
+NO3,1.9,mg/L,spa_reine,mineral_water,2024,Manufacturer label,"Spa, Liege, Belgium",Spa Reine (official label),
+pH,7.5,-,luxembourg_tap,tap_water,2024,Municipal water quality report,"Luxembourg City, Luxembourg",Luxembourg City tap water (SEBES/Ville de Luxembourg 2024),
+TDS,310.0,mg/L,luxembourg_tap,tap_water,2024,Municipal water quality report,"Luxembourg City, Luxembourg",Luxembourg City tap water (SEBES/Ville de Luxembourg 2024),
+Ca,85.0,mg/L,luxembourg_tap,tap_water,2024,Municipal water quality report,"Luxembourg City, Luxembourg",Luxembourg City tap water (SEBES/Ville de Luxembourg 2024),
+Mg,9.0,mg/L,luxembourg_tap,tap_water,2024,Municipal water quality report,"Luxembourg City, Luxembourg",Luxembourg City tap water (SEBES/Ville de Luxembourg 2024),
+Na,8.5,mg/L,luxembourg_tap,tap_water,2024,Municipal water quality report,"Luxembourg City, Luxembourg",Luxembourg City tap water (SEBES/Ville de Luxembourg 2024),
+K,1.5,mg/L,luxembourg_tap,tap_water,2024,Municipal water quality report,"Luxembourg City, Luxembourg",Luxembourg City tap water (SEBES/Ville de Luxembourg 2024),
+Cl,18.0,mg/L,luxembourg_tap,tap_water,2024,Municipal water quality report,"Luxembourg City, Luxembourg",Luxembourg City tap water (SEBES/Ville de Luxembourg 2024),
+SO4,25.0,mg/L,luxembourg_tap,tap_water,2024,Municipal water quality report,"Luxembourg City, Luxembourg",Luxembourg City tap water (SEBES/Ville de Luxembourg 2024),
+HCO3,245.0,mg/L,luxembourg_tap,tap_water,2024,Municipal water quality report,"Luxembourg City, Luxembourg",Luxembourg City tap water (SEBES/Ville de Luxembourg 2024),
+NO3,15.0,mg/L,luxembourg_tap,tap_water,2024,Municipal water quality report,"Luxembourg City, Luxembourg",Luxembourg City tap water (SEBES/Ville de Luxembourg 2024),
+F,0.08,mg/L,luxembourg_tap,tap_water,2024,Municipal water quality report,"Luxembourg City, Luxembourg",Luxembourg City tap water (SEBES/Ville de Luxembourg 2024),

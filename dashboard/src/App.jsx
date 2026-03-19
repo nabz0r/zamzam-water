@@ -7,6 +7,7 @@ import SatelliteViewer from './components/SatelliteViewer'
 import HydroView from './components/HydroView'
 import LabTracker from './components/LabTracker'
 import AdminPanel from './components/AdminPanel'
+import ResearchView from './components/ResearchView'
 import { api } from './utils/api'
 
 const NAV_ITEMS = [
@@ -16,6 +17,7 @@ const NAV_ITEMS = [
   { key: 'hydro', label: 'Hydro', icon: '\u{1F4A7}' },
   { key: 'satellite', label: 'Satellite', icon: '\u{1F6F0}' },
   { key: 'archaeology', label: 'Archaeology', icon: '\u{1F3DB}' },
+  { key: 'research', label: 'Research', icon: '\u{1F4CA}' },
   { key: 'lab', label: 'Lab', icon: '\u{1F52C}' },
   { key: 'admin', label: 'Admin', icon: '\u2699\uFE0F' },
 ]
@@ -89,6 +91,7 @@ function App() {
         {page === 'hydro' && <HydroView />}
         {page === 'satellite' && <SatelliteViewer />}
         {page === 'archaeology' && <ArchaeoMap />}
+        {page === 'research' && <ResearchView />}
         {page === 'lab' && <LabTracker />}
         {page === 'admin' && <AdminPanel />}
       </main>
