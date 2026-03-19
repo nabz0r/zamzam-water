@@ -2,6 +2,7 @@ from logging.config import fileConfig
 
 from alembic import context
 from sqlalchemy import engine_from_config, pool
+import pgvector.sqlalchemy  # noqa: F401 — needed for Vector column type in migrations
 
 from api.config import settings
 from api.database import Base

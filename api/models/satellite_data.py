@@ -1,7 +1,6 @@
 import uuid
 from datetime import datetime
 
-from geoalchemy2 import Geometry
 from sqlalchemy import Column, DateTime, Float, Integer, String, Text
 from sqlalchemy.dialects.postgresql import UUID
 
@@ -18,8 +17,7 @@ class SatelliteData(Base):
     cloud_cover = Column(Float)
     resolution_m = Column(Integer)
     file_path = Column(String(500))  # path to GeoTIFF in data/
-    geometry = Column(Geometry("POLYGON", srid=4326))
-    bbox_wkt = Column(Text)
+    bbox_wkt = Column(Text)  # WKT polygon (PostGIS geometry added later)
     source = Column(String(100))  # gee, copernicus, usgs
     notes = Column(Text)
     created_at = Column(DateTime, default=datetime.utcnow)
