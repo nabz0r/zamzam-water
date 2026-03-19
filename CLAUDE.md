@@ -58,14 +58,14 @@ All tables have: id (UUID), created_at, updated_at, source, notes.
 
 | Table | Count | Source |
 |-------|-------|--------|
-| publications | 115 (filtered by relevance) | PubMed Entrez |
-| chemical_analyses | ~100 (9 sources) | 5 Zamzam studies + 4 mineral waters |
+| publications | 51 relevant (115 scraped) | PubMed Entrez |
+| chemical_analyses | 177 measurements (16 sources) | 5 Zamzam studies + 11 comparison waters |
 | satellite_data | 50 | Planetary Computer Sentinel-2 L2A |
 | archaeological_sites | 12 | Literature compilation |
-| hydro_monitoring | 2635 days | Open-Meteo (2019–2026) |
+| hydro_monitoring | 7905 days | Open-Meteo (2019–2026) |
 | lab_samples | 0 | (pending real lab work) |
 
-Chemistry sources: Bhardwaj 2023, Donia 2021, Shomar 2012, Al-Gamal 2009, EJEBA 2025 review, Evian, Vittel, Volvic, San Pellegrino.
+Chemistry sources (16): Bhardwaj 2023, Donia 2021, Shomar 2012, Al-Gamal 2009, EJEBA 2025 review, Evian, Vittel, Volvic, San Pellegrino, Perrier, Gerolsteiner, Fiji, Acqua Panna, Highland Spring, Spa Reine, Luxembourg tap (SEBES).
 
 ## API endpoints (actual)
 
@@ -113,6 +113,12 @@ Chemistry sources: Bhardwaj 2023, Donia 2021, Shomar 2012, Al-Gamal 2009, EJEBA 
 - **LLM extraction untested**: Requires running Ollama + qwen2.5
 - **LabSample model hack**: Uses `element` field for status — needs proper `status` column
 
+## Resolved issues / patterns
+
+- **macOS compatibility**: Always use `python3` (not `python`). Set `SSL_CERT_FILE` if certifi issues. Docker credential store may need `"credsStore": ""` in `~/.docker/config.json`.
+- **Git workflow**: Always merge with `git merge origin/claude/...` (include `origin/`). Feature branches are `claude/<name>-<id>`.
+- **JSON data**: Validate with `python3 -c "import json; ..."` before committing. The `manual_compositions.json` is the source of truth for chemical data.
+
 ## Build & run
 
 ```bash
@@ -121,6 +127,8 @@ make api        # FastAPI at :8000
 make dashboard  # Vite at :5173
 make worker     # Celery worker
 make test       # test all endpoints
+make export     # generate CSV/JSON dataset
+make classify   # classify paper relevance
 ```
 
 ## Reference data
