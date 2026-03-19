@@ -17,11 +17,14 @@ async def list_publications(
     per_page: int = Query(20, ge=1, le=100),
     year: Optional[int] = None,
     journal: Optional[str] = None,
+    relevant_only: bool = Query(True, description="Filter to relevant Zamzam papers only"),
     db: AsyncSession = Depends(get_db),
 ):
     """List publications with pagination and optional filters."""
     query = select(Publication)
 
+    if relevant_only:
+        query = query.where(Publication.is_relevant == True)  # noqa: E712
     if year:
         query = query.where(Publication.year == year)
     if journal:
@@ -69,9 +72,11 @@ async def search_publications(
 ):
     """Search publications. Modes: auto (semantic if available, else text), text (ilike), semantic (pgvector).
     Empty query returns all papers paginated (same as list endpoint)."""
-    # Empty query → return all papers
+    # Empty query → return all relevant papers
     if not q.strip():
-        query = select(Publication).order_by(Publication.year.desc().nullslast())
+        query = select(Publication).where(
+            Publication.is_relevant == True  # noqa: E712
+        ).order_by(Publication.year.desc().nullslast())
         count_q = select(func.count()).select_from(query.subquery())
         total = (await db.execute(count_q)).scalar()
         query = query.offset((page - 1) * per_page).limit(per_page)

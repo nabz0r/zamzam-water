@@ -8,17 +8,21 @@ export async function fetchJson(path, options) {
 
 export const api = {
   publications: {
-    list: (page = 1, perPage = 20) =>
-      fetchJson(`/publications?page=${page}&per_page=${perPage}`),
+    list: (page = 1, perPage = 20, relevantOnly = true) =>
+      fetchJson(`/publications?page=${page}&per_page=${perPage}&relevant_only=${relevantOnly}`),
     search: (q, page = 1) =>
       fetchJson(`/publications/search?q=${encodeURIComponent(q)}&page=${page}`),
     get: (id) => fetchJson(`/publications/${id}`),
   },
   chemistry: {
     elements: () => fetchJson('/chemistry/elements'),
+    sources: () => fetchJson('/chemistry/sources'),
     byElement: (symbol) => fetchJson(`/chemistry/by-element/${symbol}`),
-    compare: (elements) =>
-      fetchJson(`/chemistry/compare?elements=${elements.join(',')}`),
+    compare: (elements, sources) => {
+      let path = `/chemistry/compare?elements=${elements.join(',')}`
+      if (sources && sources.length > 0) path += `&sources=${sources.join(',')}`
+      return fetchJson(path)
+    },
   },
   archaeology: {
     sites: () => fetchJson('/archaeology/sites'),

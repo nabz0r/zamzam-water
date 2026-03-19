@@ -1,8 +1,11 @@
 """Seed the database with published Zamzam chemical compositions and Quranic archaeological sites.
 
+Loads enriched chemistry data from data/reference/manual_compositions.json.
 Idempotent: skips if seed data already exists.
 """
 
+import json
+import os
 import sys
 import uuid
 from datetime import datetime
@@ -188,26 +191,32 @@ ARCHAEOLOGICAL_SITES = [
 ]
 
 
-def seed_chemistry(session: Session) -> int:
+def seed_chemistry_from_json(session: Session) -> int:
+    """Load all chemistry data from manual_compositions.json."""
+    json_path = os.path.join(os.path.dirname(__file__), "..", "data", "reference", "manual_compositions.json")
+    with open(json_path) as f:
+        data = json.load(f)
+
     count = 0
-    for entry in ZAMZAM_CHEMISTRY:
-        analysis = ChemicalAnalysis(
-            id=uuid.uuid4(),
-            sample_source="zamzam",
-            element=entry["element"],
-            value=entry["value"],
-            unit=entry["unit"],
-            analytical_method="ICP-MS / ICP-OES",
-            sample_location="Masjid Al-Haram, Mecca",
-            publication_doi="10.26717/BJSTR.2023.48.007677",
-            publication_year=2023,
-            source="paper",
-            notes="Composite from Bhardwaj 2023 & Donia 2021",
-            created_at=datetime.utcnow(),
-            updated_at=datetime.utcnow(),
-        )
-        session.add(analysis)
-        count += 1
+    for source_entry in data["sources"]:
+        for element, vals in source_entry["elements"].items():
+            analysis = ChemicalAnalysis(
+                id=uuid.uuid4(),
+                sample_source=source_entry["sample_source"],
+                element=element,
+                value=vals["value"],
+                unit=vals["unit"],
+                analytical_method=source_entry["method"],
+                sample_location=source_entry["sample_location"],
+                publication_doi=source_entry.get("doi"),
+                publication_year=source_entry["year"],
+                source="paper" if source_entry.get("doi") else "label",
+                notes=source_entry["citation"],
+                created_at=datetime.utcnow(),
+                updated_at=datetime.utcnow(),
+            )
+            session.add(analysis)
+            count += 1
     return count
 
 
@@ -251,12 +260,9 @@ def main():
     Base.metadata.create_all(engine)
 
     with Session(engine) as session:
-        # Check if seed data already exists
-        chem_count_existing = session.execute(
-            select(func.count()).select_from(ChemicalAnalysis).where(
-                ChemicalAnalysis.source == "paper",
-                ChemicalAnalysis.publication_doi == "10.26717/BJSTR.2023.48.007677",
-            )
+        # Check if enriched chemistry data already loaded (look for multiple sources)
+        chem_sources = session.execute(
+            select(func.count(func.distinct(ChemicalAnalysis.sample_source)))
         ).scalar()
         sites_count_existing = session.execute(
             select(func.count()).select_from(ArchaeologicalSite).where(
@@ -267,10 +273,15 @@ def main():
         chem_count = 0
         sites_count = 0
 
-        if chem_count_existing == 0:
-            chem_count = seed_chemistry(session)
+        # Re-seed chemistry if we only have old data (1 source = bhardwaj only)
+        if chem_sources <= 1:
+            # Clear old seed data and re-seed from enriched JSON
+            session.query(ChemicalAnalysis).filter(
+                ChemicalAnalysis.source.in_(["paper", "label"])
+            ).delete(synchronize_session=False)
+            chem_count = seed_chemistry_from_json(session)
         else:
-            print(f"Chemical seed data already exists ({chem_count_existing} rows), skipping.")
+            print(f"Enriched chemistry data already loaded ({chem_sources} sources), skipping.")
 
         if sites_count_existing == 0:
             sites_count = seed_archaeological_sites(session)
@@ -281,7 +292,7 @@ def main():
             session.commit()
 
         if chem_count:
-            print(f"Seeded {chem_count} chemical analyses")
+            print(f"Seeded {chem_count} chemical analyses from {chem_sources} sources")
         if sites_count:
             print(f"Seeded {sites_count} archaeological sites")
 

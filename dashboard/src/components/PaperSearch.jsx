@@ -7,6 +7,7 @@ export default function PaperSearch() {
   const [page, setPage] = useState(1)
   const [query, setQuery] = useState('')
   const [searchInput, setSearchInput] = useState('')
+  const [relevantOnly, setRelevantOnly] = useState(true)
   const [loading, setLoading] = useState(true)
 
   const perPage = 15
@@ -16,14 +17,14 @@ export default function PaperSearch() {
     try {
       const data = query
         ? await api.publications.search(query, page)
-        : await api.publications.list(page, perPage)
+        : await api.publications.list(page, perPage, relevantOnly)
       setPapers(data.results)
       setTotal(data.total)
     } catch (e) {
       console.error(e)
     }
     setLoading(false)
-  }, [page, query])
+  }, [page, query, relevantOnly])
 
   useEffect(() => { load() }, [load])
 
@@ -37,33 +38,48 @@ export default function PaperSearch() {
 
   return (
     <div className="p-8">
-      <h2 className="text-2xl text-[#e2e8f0] mb-6">Publications</h2>
+      <h2 className="text-2xl text-[#e2e8f0] mb-2">Publications</h2>
+      <p className="text-sm text-[#64748b] mb-6">
+        {total} paper{total !== 1 ? 's' : ''}{relevantOnly ? ' (Zamzam-relevant only)' : ' (all PubMed results)'}
+      </p>
 
-      {/* Search bar */}
-      <form onSubmit={handleSearch} className="mb-6 flex gap-3">
-        <input
-          type="text"
-          value={searchInput}
-          onChange={(e) => setSearchInput(e.target.value)}
-          placeholder="Search papers... (e.g. arsenic, hydrogeology, isotope)"
-          className="flex-1 bg-[#1a2140] border border-[#2a3358] rounded-lg px-4 py-2.5 text-sm text-[#e2e8f0] placeholder-[#64748b] focus:outline-none focus:border-[#60a5fa]"
-        />
-        <button
-          type="submit"
-          className="px-5 py-2.5 bg-[#1e3a5f] text-[#60a5fa] rounded-lg text-sm hover:bg-[#254a73] transition-colors"
-        >
-          Search
-        </button>
-        {query && (
+      {/* Search bar + filters */}
+      <div className="flex gap-3 mb-6">
+        <form onSubmit={handleSearch} className="flex-1 flex gap-3">
+          <input
+            type="text"
+            value={searchInput}
+            onChange={(e) => setSearchInput(e.target.value)}
+            placeholder="Search papers... (e.g. arsenic, hydrogeology, isotope)"
+            className="flex-1 bg-[#1a2140] border border-[#2a3358] rounded-lg px-4 py-2.5 text-sm text-[#e2e8f0] placeholder-[#64748b] focus:outline-none focus:border-[#60a5fa]"
+          />
           <button
-            type="button"
-            onClick={() => { setQuery(''); setSearchInput(''); setPage(1) }}
-            className="px-4 py-2.5 text-[#94a3b8] text-sm hover:text-[#e2e8f0]"
+            type="submit"
+            className="px-5 py-2.5 bg-[#1e3a5f] text-[#60a5fa] rounded-lg text-sm hover:bg-[#254a73] transition-colors"
           >
-            Clear
+            Search
           </button>
-        )}
-      </form>
+          {query && (
+            <button
+              type="button"
+              onClick={() => { setQuery(''); setSearchInput(''); setPage(1) }}
+              className="px-4 py-2.5 text-[#94a3b8] text-sm hover:text-[#e2e8f0]"
+            >
+              Clear
+            </button>
+          )}
+        </form>
+        <button
+          onClick={() => { setRelevantOnly((v) => !v); setPage(1) }}
+          className={`px-4 py-2.5 rounded-lg text-xs transition-colors whitespace-nowrap ${
+            relevantOnly
+              ? 'bg-[#1e3a5f] text-[#60a5fa] border border-[#60a5fa]/30'
+              : 'bg-[#1a2140] text-[#64748b] border border-[#2a3358]'
+          }`}
+        >
+          {relevantOnly ? 'Relevant only' : 'Show all'}
+        </button>
+      </div>
 
       {query && (
         <p className="text-sm text-[#64748b] mb-4">
@@ -74,6 +90,8 @@ export default function PaperSearch() {
       {/* Papers list */}
       {loading ? (
         <p className="text-[#64748b]">Loading...</p>
+      ) : papers.length === 0 ? (
+        <p className="text-[#64748b]">No papers found. {relevantOnly && 'Try disabling the "Relevant only" filter.'}</p>
       ) : (
         <div className="space-y-3">
           {papers.map((p) => (

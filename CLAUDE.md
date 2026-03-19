@@ -58,22 +58,25 @@ All tables have: id (UUID), created_at, updated_at, source, notes.
 
 | Table | Count | Source |
 |-------|-------|--------|
-| publications | 115 | PubMed Entrez |
-| chemical_analyses | 10 | Seed (Bhardwaj 2023, Donia 2021) |
+| publications | 115 (filtered by relevance) | PubMed Entrez |
+| chemical_analyses | ~100 (9 sources) | 5 Zamzam studies + 4 mineral waters |
 | satellite_data | 50 | Planetary Computer Sentinel-2 L2A |
 | archaeological_sites | 12 | Literature compilation |
 | hydro_monitoring | 2635 days | Open-Meteo (2019–2026) |
 | lab_samples | 0 | (pending real lab work) |
 
+Chemistry sources: Bhardwaj 2023, Donia 2021, Shomar 2012, Al-Gamal 2009, EJEBA 2025 review, Evian, Vittel, Volvic, San Pellegrino.
+
 ## API endpoints (actual)
 
 ### Data
-- `GET /api/v1/publications` — paginated, filterable by year/journal
+- `GET /api/v1/publications?relevant_only=true` — paginated, filtered by relevance
 - `GET /api/v1/publications/search?q=&mode=auto` — text or semantic search (empty q → list all)
 - `GET /api/v1/publications/{id}`
+- `GET /api/v1/chemistry/sources` — distinct sample sources with counts
 - `GET /api/v1/chemistry/elements` — distinct elements with stats
 - `GET /api/v1/chemistry/by-element/{symbol}`
-- `GET /api/v1/chemistry/compare?elements=Ca,Mg,Na`
+- `GET /api/v1/chemistry/compare?elements=Ca,Mg,Na&sources=zamzam,evian`
 - `GET /api/v1/hydro/rainfall?resolution=monthly&start=&end=`
 - `GET /api/v1/hydro/stats` — annual totals, monthly avgs, temp
 - `GET /api/v1/satellite/scenes`

@@ -10,6 +10,24 @@ from api.models.chemical_analysis import ChemicalAnalysis
 router = APIRouter(prefix="/api/v1/chemistry", tags=["chemistry"])
 
 
+@router.get("/sources")
+async def list_sources(db: AsyncSession = Depends(get_db)):
+    """List all distinct sample sources with measurement counts."""
+    query = (
+        select(
+            ChemicalAnalysis.sample_source,
+            func.count().label("count"),
+        )
+        .group_by(ChemicalAnalysis.sample_source)
+        .order_by(ChemicalAnalysis.sample_source)
+    )
+    result = await db.execute(query)
+    rows = result.all()
+    return {
+        "sources": [{"source": r.sample_source, "count": r.count} for r in rows],
+    }
+
+
 @router.get("/elements")
 async def list_elements(db: AsyncSession = Depends(get_db)):
     """List all distinct elements in the database with measurement counts."""
@@ -83,11 +101,13 @@ async def get_by_element(
 @router.get("/compare")
 async def compare_elements(
     elements: str = Query(..., description="Comma-separated element symbols, e.g. Ca,Mg,Na"),
+    sources: Optional[str] = Query(None, description="Comma-separated sources to filter, e.g. zamzam,evian"),
     db: AsyncSession = Depends(get_db),
 ):
     """Compare multiple elements — formatted for Recharts consumption.
 
     Returns data grouped by source/year, with one key per element.
+    Optionally filter by sample_source.
     """
     element_list = [e.strip() for e in elements.split(",") if e.strip()]
 
@@ -96,6 +116,9 @@ async def compare_elements(
         .where(ChemicalAnalysis.element.in_(element_list))
         .order_by(ChemicalAnalysis.publication_year, ChemicalAnalysis.sample_source)
     )
+    if sources:
+        source_list = [s.strip() for s in sources.split(",") if s.strip()]
+        query = query.where(ChemicalAnalysis.sample_source.in_(source_list))
     result = await db.execute(query)
     analyses = result.scalars().all()
 

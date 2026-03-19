@@ -1,4 +1,4 @@
-.PHONY: setup api worker dashboard test seed ingest fetch-satellite sync-hydro parse-pdfs
+.PHONY: setup api worker dashboard test seed ingest fetch-satellite sync-hydro parse-pdfs classify
 
 setup:
 	cp -n .env.example .env || true
@@ -52,6 +52,9 @@ sync-hydro:
 
 parse-pdfs:
 	curl -X POST http://localhost:8000/api/v1/tasks/parse-pdfs | python3 -m json.tool
+
+classify:
+	PYTHONPATH=. python3 scripts/classify_papers.py
 
 migrate:
 	PYTHONPATH=. alembic revision --autogenerate -m "$(msg)"
